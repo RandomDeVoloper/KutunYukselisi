@@ -73,3 +73,11 @@ Plugins/**/Intermediate/*
 
 # Cache files for the editor to use
 DerivedDataCache/*
+
+# Local tool settings and editor/IDE files
+.claude/
+.idea/
+*.log
+
+# FBX import leftovers (textures are already imported as .uasset)
+*.fbm/
