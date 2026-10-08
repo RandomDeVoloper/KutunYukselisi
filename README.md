@@ -4,7 +4,7 @@ Unreal Engine ile geliştirilen bir oyun projesi. Depo adı `KutunYukselisi`, Un
 
 ## Gereksinimler
 
-- Unreal Engine **5.6** (`ISIK.uproject` içindeki `EngineAssociation`)
+- Unreal Engine **5.8** (`ISIK.uproject` içindeki `EngineAssociation`)
 - [Git LFS](https://git-lfs.com/): `.uasset`, `.umap` ve `.uproject` dosyaları LFS ile izlenir (bkz. `.gitattributes`)
 
 ## Kurulum
@@ -22,7 +22,7 @@ Proje pratikte yalnızca Blueprint kullanır; `Source/ISIK` içinde C++ kodu yok
 
 | Ayar | Değer |
 | --- | --- |
-| Editör başlangıç haritası | `/Game/Levels/L_Tutorial` |
+| Editör başlangıç haritası | `/Game/Levels/L_Tutorial_New` |
 | Paketlenmiş oyun varsayılan haritası | `/Game/Levels/L_Main3DMenu` |
 | Varsayılan GameMode | `/Game/Telekinezi/Blueprints/GameMode/BP_TelekineziGameMode` |
 
