@@ -1,3 +1,43 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:07f186e5d8ab62bf2d20e3d11822314577094cb81b6e0f069720451ceb05fa6f
-size 640
+{
+	"FileVersion": 3,
+	"EngineAssociation": "5.8",
+	"Category": "",
+	"Description": "",
+	"Plugins": [
+		{
+			"Name": "ModelingToolsEditorMode",
+			"Enabled": true,
+			"TargetAllowList": [
+				"Editor"
+			]
+		},
+		{
+			"Name": "Water",
+			"Enabled": true
+		},
+		{
+			"Name": "DaySequence",
+			"Enabled": true
+		},
+		{
+			"Name": "Aura",
+			"Enabled": false
+		},
+		{
+			"Name": "FieldSystemPlugin",
+			"Enabled": true
+		},
+		{
+			"Name": "ModelContextProtocol",
+			"Enabled": true
+		},
+		{
+			"Name": "AllToolsets",
+			"Enabled": true
+		},
+		{
+			"Name": "ToolsetRegistry",
+			"Enabled": true
+		}
+	]
+}
