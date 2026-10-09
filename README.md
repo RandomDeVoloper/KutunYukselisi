@@ -5,7 +5,7 @@ Unreal Engine ile geliştirilen bir oyun projesi. Depo adı `KutunYukselisi`, Un
 ## Gereksinimler
 
 - Unreal Engine **5.8** (`ISIK.uproject` içindeki `EngineAssociation`)
-- [Git LFS](https://git-lfs.com/): `.uasset`, `.umap` ve `.uproject` dosyaları LFS ile izlenir (bkz. `.gitattributes`)
+- [Git LFS](https://git-lfs.com/): `.uasset`, `.umap`, `.fbx`, `.png`, `.wav` ve `.mp3` dosyaları LFS ile izlenir (bkz. `.gitattributes`). `ISIK.uproject` bilerek düz metindir, LFS'te değildir.
 
 ## Kurulum
 
