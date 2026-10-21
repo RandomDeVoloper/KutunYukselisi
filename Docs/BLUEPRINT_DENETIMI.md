@@ -47,7 +47,18 @@ VariableSet_2, _36, _37
 MacroInstance_11, Knot_10
 ```
 
-Dört adet `CreateWidget` + onları saklayan `VariableSet`'ler — bunlar `EnsureGrabHud` / `EnsureAimHud` fonksiyonlarına taşınmış olan **eski HUD oluşturma zinciri**. Silmeden önce editörde gözle doğrula.
+Dört adet `CreateWidget` + onları saklayan `VariableSet`'ler — **eski HUD oluşturma zinciri**. Her birinin yerini alan canlı yol doğrulandı:
+
+| Ölü node | Oluşturduğu widget | Yerini alan |
+|----------|-------------------|-------------|
+| `CreateWidget_1` | WBP_Hud | `EnsureAimHud` fonksiyonu |
+| `CreateWidget_7` | WBP_Hud | `EnsureAimHud` fonksiyonu |
+| `CreateWidget_8` | WBP_HudGrab | `EnsureGrabHud` fonksiyonu |
+| `CreateWidget_10` | WBP_Restart | `UC_HealthComponent.Die` |
+
+`WBP_Restart` özellikle kontrol edildi: ölüm ekranı artık `UC_HealthComponent.Die` içindeki `CreateWidget_4`'ten geliyor ve `UC_HealthComponent`'in bağımlılık listesinde `WBP_Restart` var. Yani BP_Telekinezi'deki kopya gerçekten gereksiz.
+
+Ada yapısı da doğrulandı — örnek zincir: `CallFunction_152 → CreateWidget_7 → VariableSet_36`, hiçbir event'e bağlı değil.
 
 > **Ölçüm notu:** Kollapslı (composite) graph'ların giriş düğümü `K2Node_Tunnel`, ve `find_nodes(entry_points_only=true)` bunu giriş olarak döndürmüyor. Bu yüzden kollapslı graph'ların içindeki ölü node sayısı **ölçülemedi** — oradaki sayılar yanlış pozitif olduğu için tabloya alınmadı.
 
@@ -101,21 +112,30 @@ BP_Enemy       ──hard──>  BP_Telekinezi
 
 Oyuncuyu yüklemek düşmanı, mesh'ini ve anim blueprint'ini de yüklüyor; tersi de geçerli. Proje `BPI_CombatTarget` arayüzüne zaten sahip — `Cast To BP_Enemy` yerine arayüz mesajı kullanmak bu bağı koparır. Bu en yüksek getirili tek düzeltme.
 
-**2. Engine editör içeriği oyun yolunda**
+**2. Engine editör içeriği oyun yolunda — iki yerde**
 
 ```
-/Engine/VREditor/Sounds/UI/Camera_Shutter
+/Engine/VREditor/Sounds/UI/Camera_Shutter.Camera_Shutter
 ```
 
-Crush sesi olarak Engine'in **VREditor eklentisinden** bir asset kullanılıyor. VREditor bir editör eklentisi — paketlenmiş build'de cook edilmeme riski var. Proje içi bir ses ile değiştirilmeli (`Kutun/Audio/SFX`).
+| Graph | Node | Pin |
+|-------|------|-----|
+| `CrushHeldObject` (fonksiyon) | `K2Node_CallFunction_21` | `Sound` |
+| `S_ScaleUP/Down` (kollapslı) | `K2Node_CallFunction_7` | `Sound` |
+
+Crush sesi Engine'in **VREditor eklentisinden** geliyor. VREditor editör eklentisi — paketlenmiş build'de cook edilmeme riski var.
+
+**Ancak yerine koyacak bir asset yok.** `Kutun/Audio/SFX` tamamı kılıç sesi (`SW_Sword_*`, `SW_Woosh`), `Kutun/Audio/UI` ise menü sesi. Crush/çarpma/kırılma sesi hiç yok. Yani bu bir **sanat ajanı görevi**: önce ses üretilmeli, sonra iki pin değiştirilmeli. `set_pin_value` kollapslı graph'ta da çalıştığı için değişiklik MCP'den yapılabilir.
 
 **3. Editör modülü bağımlılığı**
 
 `/Script/UMGEditor` runtime bir Blueprint'in bağımlılık listesinde. Genelde zararsız ama bir editör-only node'un graph'ta kaldığına işaret eder.
 
-**4. Şüpheli widget referansları**
+**4. `WBP_ScaleAxes` — ilk şüphe yanlıştı**
 
-`WBP_ScaleAxes` ve `WBP_Timer` hard referanslı. Eksen göstergesi CLAUDE.md'ye göre `WBP_HudGrab` içindeki `HB_Axes`'e taşındı — `WBP_ScaleAxes` muhtemelen artık kullanılmıyor. Doğrulanmalı.
+`WBP_ScaleAxes` **kullanılıyor**: `UpdateScaleAxesHud` fonksiyonundaki `CreateWidget_0` onu oluşturuyor. Yani silinecek bir referans değil.
+
+Yine de açık bir soru kalıyor: CLAUDE.md'ye göre eksen göstergesi `WBP_HudGrab` içindeki `HB_Axes`'e taşınmıştı. Şu an **iki ayrı eksen HUD'u** var gibi görünüyor — `UpdateScaleAxesHud`'un hâlâ çağrıldığı editörde kontrol edilmeli.
 
 ### Tam bağımlılık listesi (/Game)
 
@@ -128,26 +148,44 @@ Crush sesi olarak Engine'in **VREditor eklentisinden** bir asset kullanılıyor.
 
 ---
 
-## Faz 4 — Önceliklendirilmiş Düzeltme Listesi
+## Faz 4 — Düzeltme Listesi
 
-### Alfa öncesi (yap)
+> **Engel:** Editör `main` checkout'unda açık ve orada commit edilmemiş 5 asset var
+> (`BP_Telekinezi`, `BP_Axe`, `BP_Throwable`, `Stand_Arena`, `MI_Mountain`).
+> MCP ile yapılan her asset değişikliği bu worktree'ye değil **main'e** yazılır ve
+> o yarım işin üstüne biner. Binary asset merge edilemediği için sonradan ayrılamaz.
+> **Asset düzeltmeleri başlamadan önce main'deki iş commit edilmeli.**
 
-1. **`BP_Enemy` → `CameraBoom` sil** — kullanılmıyor, risk yok
-2. **`BP_Enemy` → `MaxEnemies` + `CurrentSpawns` sil** — hiçbir yerde referansı yok
-3. **`Camera_Shutter` sesini proje içi bir asset ile değiştir** — cook riski
+### Alfa öncesi
 
-### Beta öncesi (planla)
+| # | İş | Nasıl | Risk |
+|---|----|----|------|
+| 1 | `BP_Enemy` → `MaxEnemies` + `CurrentSpawns` sil | MCP `remove_variable` | Yok — 9 Blueprint tarandı, 0 referans |
+| 2 | `BP_Enemy` → `CameraBoom` sil | **Elle, editörde** | Yok — 0 referans, alt bileşeni yok |
+| 3 | Crush sesi üret, sonra 2 pin değiştir | Sanat → MCP `set_pin_value` | Asset yok, önce üretilmeli |
 
-4. **`Cast To BP_Enemy` → `BPI_CombatTarget` arayüzü** — döngüsel bağımlılığı koparır, bellek kazancı
-5. **BP_Telekinezi:EventGraph'taki 21 ölü node'u sil** — önce gözle doğrula
-6. **BP_Telekinezi EventGraph'ı böl** — 29 giriş noktası tek graph'ta fazla; input/HUD/combat olarak ayrılabilir
-7. **`WBP_ScaleAxes` gerçekten kullanılıyor mu?** — kullanılmıyorsa referansı kaldır
+**Neden CameraBoom elle:** bileşenler `list_variables`'ta görünmüyor (sadece `Spawner`, `MaxEnemies`, `CurrentSpawns`, `bIsDead`, `AttackDamage`, `AttackRange`, `AttackInterval`, `AttackTimer`, `HitFlashMID`, `HitFlashPrevOverlay`, `AttackAnim`, `AttackAnimRate` dönüyor). `remove_variable` bir SCS bileşenini kaldıramaz — Components panelinden silinmeli.
 
-### İzle (şimdi dokunma)
+### Beta öncesi
 
-8. `Spawner` değişkeni — eski spawner'lar temizlenince silinebilir
-9. `MATERIALCHANGE` kollapslı graph'ı — çalışıyor, refactor'ü elle ve Play testiyle yapılmalı
-10. Kollapslı graph'ların içindeki ölü node'lar — MCP ölçemiyor, editörde kontrol gerekir
+| # | İş | Not |
+|---|----|-----|
+| 4 | `Cast To BP_Enemy` → `BPI_CombatTarget` | Döngüsel bağımlılığı koparır, en yüksek getiri |
+| 5 | EventGraph'taki 21 ölü node'u sil | Yerini alan yollar doğrulandı; main temizlendikten sonra |
+| 6 | EventGraph'ı böl | 29 giriş tek graph'ta fazla — input / HUD / combat |
+| 7 | `UpdateScaleAxesHud` hâlâ çağrılıyor mu? | İki eksen HUD'u olabilir |
+
+### İzle (dokunma)
+
+8. `Spawner` değişkeni — `BP_EnemySpawn_Konsta` + `_Mongol` yazıyor, onlar temizlenince gider
+9. `MATERIALCHANGE` kollapslı graph'ı — çalışıyor, refactor elle + Play testi
+10. Kollapslı graph içi ölü node'lar — MCP ölçemiyor (Tunnel entry dönmüyor), editörde bak
+
+### Ölçümün kapsamadığı yerler
+
+- **Haritalar ve level Blueprint'leri** taranmadı (`Oba_L`, `L_Niyazi`, `Stand_Arena`) — `BP_Enemy` üyelerini oradan okuyan bir şey varsa görülmedi. Silme sonrası derleme hatası çıkarsa kaynak orasıdır.
+- **`ABP_Enemy`** (Animation Blueprint) taranmadı.
+- Ölçüm main'deki **commit edilmemiş** BP_Telekinezi üzerinde yapıldı — 21 ölü node'un bir kısmı yarım kalmış aktif iş olabilir.
 
 ---
 

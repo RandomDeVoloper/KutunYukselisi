@@ -102,7 +102,7 @@ Content/Kutun/
 | BP_Telekinezi ↔ BP_Enemy | Döngüsel hard referans | YÜKSEK | BPI_CombatTarget'a geçilecek |
 | BP_Telekinezi | EventGraph'ta 21 ölü node (eski HUD zinciri) | YÜKSEK | Doğrulanıp silinecek |
 | BP_Telekinezi | 1114 node / 48 graph — EventGraph'ta 29 giriş | ORTA | Bölünecek |
-| BP_Telekinezi | `WBP_ScaleAxes` kullanılmıyor olabilir | ORTA | Doğrulanacak |
+| BP_Telekinezi | `UpdateScaleAxesHud` hâlâ çağrılıyor mu? | ORTA | Doğrulanacak |
 | BP_Enemy | `Spawner` write-only, generic `Object` tipli | İZLE | Eski spawner'lara bağlı |
 | BP_Telekinezi | `MATERIALCHANGE` kollapslı graph (çift chain) | İZLE | Elle refactor |
 
