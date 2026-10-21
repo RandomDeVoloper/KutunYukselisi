@@ -91,15 +91,22 @@ Content/Kutun/
 
 ## Teknik Borç (Blueprint Denetimi Sonuçları)
 
-> Bu bölüm BP denetimi tamamlandıkça güncellenecek.
+> Ölçüm 21 Ekim 2026'da Unreal MCP ile canlı proje üzerinde yapıldı.
+> Ayrıntı: [BLUEPRINT_DENETIMI.md](BLUEPRINT_DENETIMI.md)
 
 | Blueprint | Sorun | Öncelik | Durum |
 |-----------|-------|---------|-------|
-| BP_Enemy | CameraBoom component (oyuncudan kopya) | KRİTİK | Bekliyor |
-| BP_Axe | ~323 ölü node birikmiş | YÜKSEK | Bekliyor |
-| BP_Telekinezi | Hard ref texture/mesh assetleri | ORTA | Bekliyor |
-| BP_Telekinezi | MATERIALCHANGE kollapslı graph (çift chain) | ORTA | Bekliyor |
-| UC_HealthComponent | OnDepleted pin kopukluğu riski | KRİTİK | Doğrula |
+| BP_Enemy | `CameraBoom` — oyuncudan kopya, 0 referans | KRİTİK | Silinecek |
+| BP_Enemy | `MaxEnemies` + `CurrentSpawns` — 0 referans | KRİTİK | Silinecek |
+| BP_Telekinezi | `/Engine/VREditor/.../Camera_Shutter` — cook riski | KRİTİK | Değişecek |
+| BP_Telekinezi ↔ BP_Enemy | Döngüsel hard referans | YÜKSEK | BPI_CombatTarget'a geçilecek |
+| BP_Telekinezi | EventGraph'ta 21 ölü node (eski HUD zinciri) | YÜKSEK | Doğrulanıp silinecek |
+| BP_Telekinezi | 1114 node / 48 graph — EventGraph'ta 29 giriş | ORTA | Bölünecek |
+| BP_Telekinezi | `WBP_ScaleAxes` kullanılmıyor olabilir | ORTA | Doğrulanacak |
+| BP_Enemy | `Spawner` write-only, generic `Object` tipli | İZLE | Eski spawner'lara bağlı |
+| BP_Telekinezi | `MATERIALCHANGE` kollapslı graph (çift chain) | İZLE | Elle refactor |
+
+**Temiz çıkanlar:** `UC_HealthComponent` (50 node, 0 ölü), `BP_Axe` (217 node, 1 kopuk — CLAUDE.md'deki "323 ölü node" notu güncel değil), `BP_EnemySpawner` (72 node).
 
 ---
 
