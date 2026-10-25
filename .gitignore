@@ -75,9 +75,28 @@ Plugins/**/Intermediate/*
 DerivedDataCache/*
 
 # Local tool settings and editor/IDE files
-.claude/
+# Claude Code Game Studios content under .claude/ is tracked; everything else
+# in .claude/ (local settings, session worktrees, logs) stays out of git.
+.claude/*
+!.claude/agents/
+!.claude/docs/
+!.claude/hooks/
+!.claude/rules/
+!.claude/scripts/
+!.claude/skills/
+!.claude/settings.json
+!.claude/statusline.sh
+.claude/settings.local.json
 .idea/
 *.log
 
 # FBX import leftovers (textures are already imported as .uasset)
 *.fbm/
+
+# Claude Code Game Studios — local/per-session artifacts
+CLAUDE.local.md
+project.local.yaml
+production/session-logs/
+production/session-state/
+.scratch/
+Docs/consistency-failures.md
