@@ -65,3 +65,88 @@ All game content lives under **`Content/Kutun/`** (reorganized 2026-10-11). Name
 ## Plugins
 
 `Plugins/Source/BlueprintArrange` is a local editor plugin (Blueprint node auto-arrange; only tests/headers present). Enabled engine plugins of note: ModelingToolsEditorMode, Water, DaySequence, FieldSystem, ModelContextProtocol, ToolsetRegistry, AllToolsets.
+
+---
+
+# Claude Code Game Studios (CCGS)
+
+This project also runs the [Claude Code Game Studios](Docs/ccgs/CCGS-README.md)
+template (framework 1.2.0, see `project.yaml`): 49 subagents, 74 skills, 15 hooks
+and 14 path-scoped rule files under `.claude/`. Everything above in this file
+still applies — the studio layer adds process, it does not replace the Unreal
+notes.
+
+Installed into this repo rather than cloned as its own project, so a few paths
+differ from the upstream template: the template's `docs/` lives in this repo's
+existing **`Docs/`** folder, and the template's `src/` layer was skipped (`ISIK`
+is Blueprint-only; `Source/ISIK` is empty).
+
+## Technology Stack
+
+- **Engine**: Unreal Engine 5.8 (`EngineAssociation` in `ISIK.uproject`)
+- **Language**: Blueprint (no C++ game module)
+- **Version Control**: Git + Git LFS for binary assets
+- **Asset Pipeline**: Unreal Editor; the `unreal-mcp` MCP server for scripted edits
+
+Run `/setup-engine unreal 5.8` once to write the engine keys into `project.yaml`,
+and `/start` for the guided onboarding (it also records `modes.rigor` and
+`modes.automation`). `/adopt` audits the documents already in `Docs/`.
+
+## Project Structure
+
+@.claude/docs/directory-structure.md
+
+## Engine Version Reference
+
+@Docs/engine-reference/unreal/VERSION.md
+
+## Technical Preferences
+
+`project.yaml` at the repo root is the primary config store — engine, specialists,
+naming, platform, performance, modes. Skills resolve it via `resolve_config`
+(see `.claude/docs/config-resolution.md`). Per-developer overrides go in
+`project.local.yaml` (git-ignored).
+
+## Coordination Rules
+
+@.claude/docs/coordination-rules.md
+
+## Collaboration Protocol
+
+**User-driven collaboration, not autonomous execution.**
+Every task follows: **Question -> Options -> Decision -> Draft -> Approval**
+
+- Agents MUST ask "May I write this to [filepath]?" before using Write/Edit tools
+  (exempt: `active.md` appends, agent memory, a subagent's new file at the path
+  its orchestrating skill named; see `.claude/rules/agent-memory.md`)
+- Agents MUST show drafts or summaries before requesting approval
+- Multi-file changes require explicit approval for the full changeset
+- No commits without user instruction
+- A skipped or dismissed question is not an answer: act on nothing, re-ask in
+  plain text and wait
+
+See `Docs/COLLABORATIVE-DESIGN-PRINCIPLE.md` for the full protocol and examples.
+
+## Coding Standards
+
+@.claude/docs/coding-standards.md
+
+## Context Management
+
+Read `.claude/docs/context-management.md` on demand — it is a reference, not
+session context. Two of its conventions are load-bearing:
+
+- **`production/session-state/active.md` is the session checkpoint.** The file is
+  the memory, not the conversation. Read it first after any compaction, crash, or
+  `/clear`.
+- **Helpers in `.claude/scripts/` emit observations, never verdicts.**
+
+## Studio layer and the Unreal workflow
+
+- The hooks deny `Edit(**/*.uasset)` and `Edit(**/*.umap)` — binary assets are
+  edited in the editor or through `unreal-mcp`, exactly as the notes above say.
+- `.claude/` content is tracked in git except local settings, session worktrees
+  and agent memory (see `.gitignore`); `.claude/settings.local.json` stays local.
+- Hooks and skills need **Python 3** and **Bash**. On this machine only `py`
+  resolves (`python`/`python3` are Windows Store stubs); the helper's fallback
+  chain finds it. `jq` is not installed, so a few hook validations are skipped.
