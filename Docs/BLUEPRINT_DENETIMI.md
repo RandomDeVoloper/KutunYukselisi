@@ -2,7 +2,7 @@
 
 **Tarih:** 21 Ekim 2026
 **Yöntem:** Unreal MCP (`BlueprintTools`, `AssetTools`) — editör açık, canlı proje üzerinde ölçüldü
-**Durum:** Faz 1–3 tamam. Faz 4 (düzeltmeler) bekliyor.
+**Durum:** Faz 1–3 tamam. Faz 4 kısmen tamam — bkz. "Kasım 2026 güncellemesi" (dosya sonu).
 
 ---
 
@@ -170,8 +170,8 @@ Yine de açık bir soru kalıyor: CLAUDE.md'ye göre eksen göstergesi `WBP_HudG
 
 | # | İş | Not |
 |---|----|-----|
-| 4 | `Cast To BP_Enemy` → `BPI_CombatTarget` | Döngüsel bağımlılığı koparır, en yüksek getiri |
-| 5 | EventGraph'taki 21 ölü node'u sil | Yerini alan yollar doğrulandı; main temizlendikten sonra |
+| 4 | `Cast To BP_Enemy` → `BPI_CombatTarget` | KISMEN TAMAM — üç cast kırıldı ama döngü duruyor; kök interface imzasında (dosya sonu) |
+| 5 | EventGraph'taki 21 ölü node'u sil | TAMAM (`bebe410`) |
 | 6 | EventGraph'ı böl | 29 giriş tek graph'ta fazla — input / HUD / combat |
 | 7 | `UpdateScaleAxesHud` hâlâ çağrılıyor mu? | İki eksen HUD'u olabilir |
 
