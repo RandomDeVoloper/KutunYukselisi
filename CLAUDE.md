@@ -66,6 +66,34 @@ All game content lives under **`Content/Kutun/`** (reorganized 2026-10-11). Name
 
 `Plugins/Source/BlueprintArrange` is a local editor plugin (Blueprint node auto-arrange; only tests/headers present). Enabled engine plugins of note: ModelingToolsEditorMode, Water, DaySequence, FieldSystem, ModelContextProtocol, ToolsetRegistry, AllToolsets.
 
+## Skills
+
+Installed Unreal skills live at user level (`~/.claude/skills/`), so they load
+every session automatically — this table is about **which one applies when**.
+
+| Skill | Use for |
+|---|---|
+| `unreal-blueprints` | Blueprint architecture, graph organisation, splitting oversized graphs |
+| `unreal-enhanced-input` | `IA_`/`IMC_` assets, mapping contexts, trigger choice (`Started` vs `Triggered`) |
+| `unreal-niagara` | `NS_` systems — `SwordTrailPack`, `SaberTrail`, `ItadoriAura`, VFX driven from Blueprints |
+| `unreal-packaging` | Cook/package work, `MapsToCook`, engine-content references that break a cook |
+| `ue-materials-rendering` | `M_`/`MI_` work, `M_Highlight`, landscape materials |
+| `ue-audio-system` | `SW_`/`ATT_` assets and the `Kutun/Audio` tree |
+| `game-feel` | Hit stop, camera shake, knockback tuning (`ApplyHitFeedback`, `CS_Crush`) |
+| `unreal-engine-skills-for-claude-code:unreal-mcp` | Driving the live editor through `unreal-mcp` (plugin skill) |
+| `unreal-behavior-trees` | **Only if** enemy AI moves to Behavior Trees. It does not use them today: `BP_Enemy` runs PawnSensing plus in-graph logic and the project has no `BT_`/`BB_`/AIController assets. |
+
+**Deliberately not installed:** `unreal-cpp-gameplay`, `ue-cpp-foundations` and
+`ue-blueprint-cpp-interop` — there is no C++ module and no `Source/` directory, so
+C++ guidance would only mislead. The `scenario-unreal-*` family targets Scenario's
+AI asset pipeline; this project's meshes come from Meshy.
+
+Project-level CCGS skills (`/code-review`, `/tech-debt`, `/perf-profile`,
+`/project-stage-detect`, …) live in `.claude/skills/` — see the CCGS section below.
+
+Search the wider ecosystem with `/find-skills`; installed families come from
+`gamedev-skills/awesome-gamedev-agent-skills` (`npx skills add <owner/repo@skill> -g -y`).
+
 ---
 
 # Claude Code Game Studios (CCGS)
