@@ -50,10 +50,7 @@
 		},
 		{
 			"Name": "MovieRenderPipeline",
-			"Enabled": true,
-			"TargetAllowList": [
-				"Editor"
-			]
+			"Enabled": false
 		},
 		{
 			"Name": "ElectronicNodes",
