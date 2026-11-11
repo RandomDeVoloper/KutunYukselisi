@@ -31,7 +31,7 @@ Oyuncunun spawn olduğu dar, kapalı alan. `PlayerStart`'ın **en az 500 ünite 
 | 2 | "Fırlat! **[Sol Tık]** bırak" | Nesne fırlatma |
 | 3 | "Büyüt / Küçült: **[Fare Tekerleği]**" | Ölçekleme |
 | 4 | "Eksen kilidi: **X / Y / Z**" | Eksen maskeleme |
-| 5 | "Kılıcı çağır: **[E]**" | SwordRecall |
+| 5 | "Kılıcı geri çağır: **[Sağ Tık]**" | SwordRecall |
 
 **Ortam:** Dar taş koridorlar, ahşap fıçılar ve küpler (fırlatma hedefleri), bir barikat (kılıç pratiği için).
 
