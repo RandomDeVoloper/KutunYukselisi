@@ -30,11 +30,11 @@ Keşfet → Düşmanla Karşılaş → Kut Güçlerini Kullan → Karar Ver → 
 
 | Güç | Tuş | Açıklama |
 |-----|-----|----------|
-| Telekinezi | Fare Orta | Nesne tut / fırlat |
+| Telekinezi | Sol Tık | Nesne tut / fırlat |
 | Ölçeklendirme | Scroll Up/Down | Tuttuğun nesneyi büyüt/küçült |
-| Eksen Maskesi | 1 / 2 / 3 | X / Y / Z eksenini aç-kapat |
-| Kılıç Uçuşu | F | Kılıcı fırlat, geri çağır |
-| Kılıç Sörfü | Kılıç üzerindeyken | Kılıcın üzerinde uçuş |
+| Eksen Maskesi | X / Y / Z | Büyütme/küçültme eksenini aç-kapat |
+| Kılıç Geri Çağırma | Sağ Tık | Kılıcı geri çağır |
+| Kılıç Sörfü | G | Mount sword’a bin, kılıcın üzerinde uç |
 
 ---
 

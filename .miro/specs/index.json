@@ -1,0 +1,34 @@
+{
+  "board_url": "https://miro.com/app/board/uXjVEX2Or-M=/",
+  "extracted_at": "2026-11-11T21:33:26.923269",
+  "items": [
+    {
+      "id": "3458764689771942435",
+      "type": "frame",
+      "title": "Toygard — 5 Haftalık Görev Listesi (19 Aralık)",
+      "path": "frames/3458764689771942435.md"
+    },
+    {
+      "id": "3458764687857767849",
+      "type": "diagram",
+      "title": "TOYGARD — Core Loop",
+      "path": "diagrams/3458764687857767849.md"
+    },
+    {
+      "id": "3458764688108964861",
+      "type": "other",
+      "title": "BUGS",
+      "path": "other/3458764688108964861.md"
+    }
+  ],
+  "images": [],
+  "summary": {
+    "total_items": 3,
+    "by_type": {
+      "frame": 1,
+      "diagram": 1,
+      "other": 1
+    },
+    "total_images": 0
+  }
+}
