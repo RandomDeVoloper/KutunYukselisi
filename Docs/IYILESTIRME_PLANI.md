@@ -57,3 +57,25 @@ Asset değişiklikleri öncesinde açık editörün bu checkout'u kullandığı 
 - İki ardışık başlangıçta controller uyuşmazlığı görülmedi; uzun oturumda sinematik flag'inin false'a döndüğü okundu. Hareket/kamera playtesti hâlâ bekliyor; BUG-0010 durumu buna göre güncellendi.
 - Geri dönüş dosyası .scratch/BUG-0010-before/BP_Telekinezi.uasset altında.
 - Sonraki küçük iş BUG-0011: önce EndCinematic'teki, ardından EventGraph başlangıcındaki boş dizi erişimini pin düzeyinde doğrulayıp düzeltmek. Genel EventGraph DSL ile yeniden yazılmayacak.
+
+## P02 ilerleme — BUG-0011 düzeltmesi
+
+- Taban e19de70, çalışma dalı codex/bug-0011-array-guards. Önceki planın başlığındaki dal ilk çalışma dalını gösterir; bu parça yeni daldadır.
+- BP_Telekinezi EventGraph ve EndCinematic içindeki iki koşulsuz index 0 okumasına IsValidIndex kontrolü eklendi. İki başlangıç ve bir sinematik bitişinde boş dizi uyarısı görülmedi. Asset kaydedildi.
+- Animasyon önizlemesinin REINST uyarısı compile_blueprint sonucunu kirletmeye devam ediyor. ABP değişikliği kalıcılaştırılmadı; temiz editör oturumunda derleme kontrolü ve önizleme referansının kök nedeni ayrı iş olarak bekliyor.
+- P02 hâlâ sürüyor: fullscreen/Options, ilk grab/HUD ve L_Trailer etkileşim testleri tamamlanmadı. Dizi doluyken eski sinematik zincirinin davranışı ayrıca test edilmedi.
+
+## 17 Kasım — Sahneye göre sinematik süreleri
+
+Kullanıcı kararı: mağara açılışı 22 saniye, L_Trailer sinematiği 40 saniye; süreler ayrı ayarlanacak.
+
+BP_Telekinezi değişiklikleri:
+- Cinematics|Settings kategorisi altında CaveCinematicDuration=22 ve TrailerCinematicDuration=40 eklendi.
+- ConfigureCinematicDuration, PIE önekini kaldırarak geçerli harita adını okur: Stand_Arena için CaveCinematicDuration, L_Trailer için TrailerCinematicDuration seçilir. Diğer haritalarda önceki CinematicDuration korunur.
+- StartCinematic içinde oyuncu kontrolü doğrulandıktan sonra, timer kurulmadan önce ConfigureCinematicDuration çağrılır.
+- Eski CinematicDuration, Cinematics|Runtime kategorisine taşındı; artık seçilmiş çalışma süresini tutar.
+- Mağaradaki BP_CutsceneDirector instance süresi zaten 22 idi ve değiştirilmedi. İleride mağaranın toplam süresi değiştirilirse director ile oyuncu kilidi süreleri birlikte değerlendirilmelidir.
+
+Canlı test: Stand_Arena PIE oyuncusunda cinematicDuration=22 ve başlangıçta bIsCinematicActive=true okundu; ardından false'a döndü. Aynı PIE oturumunda open /Game/Kutun/Maps/L_Trailer ile yalnızca oyun dünyasında seyahat edildi; oyuncuda cinematicDuration=40 ve başlangıçta true okundu, süre sonrasında false doğrulandı. Editör haritası Stand_Arena olarak kaldı; harita assetleri kaydedilmedi.
+
+BP_Telekinezi save_assets=true ve is_dirty=false ile kaydedildi. Önceki animasyon önizlemesinin REINST uyarısı compile_blueprint sırasında devam etti; temiz derleme iddia edilmiyor. Runtime PIE başlangıcı başarılıydı. Önceki BUG-0011 düzeltmesi korundu. Yedek: .scratch/cinematic-durations-before-20261117/BP_Telekinezi.uasset.
