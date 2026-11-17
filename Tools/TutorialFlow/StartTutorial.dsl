@@ -1,0 +1,22 @@
+(fn StartTutorial ()
+ (if (and (not (Variables|Default|GetTutorialActive)) (not (and (Variables|Default|GetTriggerOnce) (Variables|Default|GetTutorialFinished))))
+  (Utilities|IsValid (Variables|Default|GetTutorialControls) (:"Is Valid"
+   (bind allowed (Class|WBPTutorialControls|CanStartLesson :self (Variables|Default|GetTutorialControls) :LessonOrder (Variables|Default|GetTutorialOrder)))
+   (if allowed
+    (Variables|Default|SetHasTriggered true)
+ (Variables|Default|SetTutorialElapsed 0.0)
+ (Variables|Default|SetTutorialPollElapsed 0.0)
+ (Variables|Default|SetTutorialSuccessElapsed 0.0)
+ (Variables|Default|SetTutorialStep 0)
+ (Variables|Default|SetTutorialRetryCount 0)
+ (Variables|Default|SetTutorialFinished false)
+ (Variables|Default|SetInitialSwordState (Class|BPTelekinezi|GetSwordonHand (Variables|Default|GetTutorialPlayer)))
+ (bind widgets (Widget|GetAllWidgetsOfClass "/Game/Kutun/UI/Widgets/WBP_TutorialPrompt.WBP_TutorialPrompt_C"))
+ (for w widgets (Widget|RemoveFromParent w))
+ (bind prompt (UserInterface|CreateWidget "/Game/Kutun/UI/Widgets/WBP_TutorialPrompt.WBP_TutorialPrompt_C" (Game|GetPlayerController 0)))
+ (Variables|Default|SetPromptWidget prompt)
+ (Variables|Default|SetTutorialActive true)
+ (CallFunction|RefreshTutorial)
+ (UserInterface|Viewport|AddtoViewport prompt)
+    (Class|WBPTutorialControls|TeachControl :self (Variables|Default|GetTutorialControls) :Kind (Variables|Default|GetTutorialKind) :Step 0))))))
+

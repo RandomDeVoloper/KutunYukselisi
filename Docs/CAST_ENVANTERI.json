@@ -1,0 +1,624 @@
+{
+  "date": "2026-11-17",
+  "base_commit": "a0b11da",
+  "scope": "/Game",
+  "blueprint_assets": 84,
+  "asset_graphs": 625,
+  "level_blueprints": 3,
+  "level_graphs": 4,
+  "total_graphs": 629,
+  "remaining_casts": 51,
+  "bp_telekinezi_casts": 11,
+  "level_casts": 0,
+  "removed": [
+    "/Game/Kutun/UI/Widgets/WBP_Hud.WBP_Hud:EventGraph.K2Node_DynamicCast_0",
+    "/Game/Kutun/UI/Widgets/WBP_Scope.WBP_Scope:UpdateCrosshair.K2Node_DynamicCast_0"
+  ],
+  "groups": {
+    "CIN": "BPI_CinematicState üzerinden IsCinematicActive sorgusu; değişim bildirimi gerekiyorsa OnCinematicStateChanged dispatcher. Sağlık ve AI aynı sözleşmeyi kullanmalı.",
+    "SET": "BPI_PlayerSettings veya ayar bileşeninden hassasiyet sorgula/güncelle/kaydet; doğrudan pawn alanı yazma. Başlangıç yüklemesi ve iki menünün aynı değeri göstermesi test edilmeli.",
+    "SWORD": "Önce mevcut BPI_SwordHolder/BPI_SwordOwner ve SetSwordState imzalarını doğrula. Soket/attachment transformunu interface ile sorgula; kılıç durumunu interface mesajı veya dispatcher ile bildir.",
+    "STATS": "Mevcut BPI_Stats sözleşmesini doğrula; Souls değerini interface üzerinden sorgula veya OnSoulsChanged dispatcher ile HUD'u güncelle.",
+    "ANIM": "Telekinezi durumunu interface sorgusu ya da oyuncu durum bileşeni/dispatcher üzerinden animasyon instance'ına aktar. Initialize/Update geçerlilik kontrollerini koru; koşma, zıplama ve surfing regresyon testi yap.",
+    "BROKEN": "ABP_Unarmed içindeki kayıp BP Third Person Character hedefini ve referanslarını doğrula. Taramada bozuk cast bulundu; Play öncesi genel derleme de ABP_Unarmed hatası bildirdi. Şablonu otomatik silme veya rastgele sınıfa bağlama.",
+    "MATCH": "Maç sorgularını match interface/bileşenine, kill ve başlangıç/bitiş bildirimlerini dispatcher veya interface mesajına taşı.",
+    "HEALTH": "GetComponentByClass sonrası typed bileşen referansını koru veya ortak sağlık interface'i kullan; hasar/ölüm bildirimleri mevcut health dispatcher'larından gelmeli.",
+    "SAVE": "SaveGame erişimini tek ayar/kayıt katmanında topla; tüketici widget'lar SaveGame sınıfını cast etmesin. Kayıt okuma ve yeniden açma davranışını test et.",
+    "COMBAT": "Mevcut BPI_CombatTarget/BPI_Interactable sözleşmelerini doğrula; sınıf kontrolü yerine yetenek sorgusu ve interface mesajı kullan.",
+    "PROJECTILE": "Çarpılan nesnenin yeteneğini interface ile sorgula; etki/hasar olaylarını ortak sözleşmeden bildir.",
+    "SURF": "Mevcut BPI_Surfing/BPI_SwordOwner imzalarını doğrula; mount durumunu interface/dispatcher ile yönet.",
+    "SEQ": "Sequence actor/player referansını sahne director'ından typed olarak al; ilk aktörü bul/cast et modelini kaldır. 22/40 saniye ve boş sonuç korumaları korunmalı.",
+    "NATIVE": "Character/PlayerController/Actor/MaterialInterface cast'lerini ayrı değerlendir. Typed API/ref ile gereksiz cast'i kaldır; yetenek sorgusu gerekiyorsa interface kullan. Bir cast'i aynı somut sınıf bağımlılığını başka node'a taşıyarak kapatılmış sayma."
+  },
+  "rows": [
+    {
+      "id": "CAST-001",
+      "node": "/Game/Characters/Mannequins/Anims/Unarmed/ABP_Unarmed.ABP_Unarmed:EventGraph.K2Node_DynamicCast_0",
+      "target": "Character",
+      "priority": "P3",
+      "group": "NATIVE",
+      "purpose": "Motor tipi erişimi; typed referans veya uygun sözleşme ile değerlendir",
+      "operations": [],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-002",
+      "node": "/Game/Characters/Mannequins/Anims/Unarmed/ABP_Unarmed.ABP_Unarmed:EventGraph.K2Node_DynamicCast_1",
+      "target": "Badcastnode",
+      "priority": "P0",
+      "group": "BROKEN",
+      "purpose": "Hedef sınıfı kayıp şablon cast'i; kullanımını doğrula",
+      "operations": [],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-003",
+      "node": "/Game/CombatMagicAnims/Demo/Mannequins/Anims/Unarmed/ABP_Retarget.ABP_Retarget:EventGraph.K2Node_DynamicCast_0",
+      "target": "Character",
+      "priority": "P3",
+      "group": "NATIVE",
+      "purpose": "Motor tipi erişimi; typed referans veya uygun sözleşme ile değerlendir",
+      "operations": [],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-004",
+      "node": "/Game/FogArea/Blueprints/BP_FogArea.BP_FogArea:CreateMID.K2Node_DynamicCast_0",
+      "target": "MaterialInterface",
+      "priority": "P3",
+      "group": "NATIVE",
+      "purpose": "Motor tipi erişimi; typed referans veya uygun sözleşme ile değerlendir",
+      "operations": [],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-005",
+      "node": "/Game/Kutun/Characters/Enemies/Base/ABP_Enemy.ABP_Enemy:EventGraph.K2Node_DynamicCast_0",
+      "target": "Character",
+      "priority": "P3",
+      "group": "NATIVE",
+      "purpose": "Motor tipi erişimi; typed referans veya uygun sözleşme ile değerlendir",
+      "operations": [],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-006",
+      "node": "/Game/Kutun/Characters/Enemies/Base/ABP_Enemy.ABP_Enemy:EventGraph.K2Node_DynamicCast_3",
+      "target": "BP_Enemy",
+      "priority": "P2",
+      "group": "COMBAT",
+      "purpose": "Düşman etkileşimi",
+      "operations": [],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-007",
+      "node": "/Game/Kutun/Characters/Enemies/Base/BP_Enemy.BP_Enemy:EventGraph.K2Node_DynamicCast_0",
+      "target": "BP_StandGameMode",
+      "priority": "P2",
+      "group": "MATCH",
+      "purpose": "Maç/kill/HUD akışı",
+      "operations": [],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-008",
+      "node": "/Game/Kutun/Characters/Enemies/Base/BP_Enemy.BP_Enemy:EventGraph.K2Node_DynamicCast_2",
+      "target": "BP_StandGameMode",
+      "priority": "P2",
+      "group": "MATCH",
+      "purpose": "Maç/kill/HUD akışı",
+      "operations": [],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-009",
+      "node": "/Game/Kutun/Characters/Enemies/Base/BP_Enemy.BP_Enemy:IsPlayerInCinematic.K2Node_DynamicCast_0",
+      "target": "BP_Telekinezi",
+      "priority": "P1",
+      "group": "CIN",
+      "purpose": "Sinematik durumunu oku",
+      "operations": [
+        "|GetbIsCinematicActive"
+      ],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-010",
+      "node": "/Game/Kutun/Characters/Enemies/Bizans/Animations/ABP_Bizans.ABP_Bizans:EventGraph.K2Node_DynamicCast_0",
+      "target": "Character",
+      "priority": "P3",
+      "group": "NATIVE",
+      "purpose": "Motor tipi erişimi; typed referans veya uygun sözleşme ile değerlendir",
+      "operations": [],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-011",
+      "node": "/Game/Kutun/Characters/Enemies/Chinese/Animations/ABP_Chinese.ABP_Chinese:EventGraph.K2Node_DynamicCast_0",
+      "target": "Character",
+      "priority": "P3",
+      "group": "NATIVE",
+      "purpose": "Motor tipi erişimi; typed referans veya uygun sözleşme ile değerlendir",
+      "operations": [],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-012",
+      "node": "/Game/Kutun/Characters/Enemies/Chinese/Animations/ABP_Chineses.ABP_Chineses:EventGraph.K2Node_DynamicCast_0",
+      "target": "Character",
+      "priority": "P3",
+      "group": "NATIVE",
+      "purpose": "Motor tipi erişimi; typed referans veya uygun sözleşme ile değerlendir",
+      "operations": [],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-013",
+      "node": "/Game/Kutun/Characters/Enemies/Mongol/Animations/ABP_Mongol.ABP_Mongol:EventGraph.K2Node_DynamicCast_0",
+      "target": "Character",
+      "priority": "P3",
+      "group": "NATIVE",
+      "purpose": "Motor tipi erişimi; typed referans veya uygun sözleşme ile değerlendir",
+      "operations": [],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-014",
+      "node": "/Game/Kutun/Characters/Player/Animations/ABP_Telekinezi.ABP_Telekinezi:EventGraph.K2Node_DynamicCast_0",
+      "target": "Character",
+      "priority": "P3",
+      "group": "NATIVE",
+      "purpose": "Motor tipi erişimi; typed referans veya uygun sözleşme ile değerlendir",
+      "operations": [],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-015",
+      "node": "/Game/Kutun/Characters/Player/Animations/ABP_Telekinezi.ABP_Telekinezi:EventGraph.K2Node_DynamicCast_2",
+      "target": "BP_Telekinezi",
+      "priority": "P1",
+      "group": "ANIM",
+      "purpose": "Telekinezi animasyon durumunu oku",
+      "operations": [
+        "|GetbIsTelekinesis"
+      ],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-016",
+      "node": "/Game/Kutun/Characters/Player/BP_Telekinezi.BP_Telekinezi:EmergencyRespawn.K2Node_DynamicCast_2",
+      "target": "UC_HealthComponent",
+      "priority": "P2",
+      "group": "HEALTH",
+      "purpose": "Sağlık bileşeni erişimi",
+      "operations": [],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-017",
+      "node": "/Game/Kutun/Characters/Player/BP_Telekinezi.BP_Telekinezi:EndCinematic.K2Node_DynamicCast_0",
+      "target": "LevelSequenceActor",
+      "priority": "P2",
+      "group": "SEQ",
+      "purpose": "SequencePlayer erişimi",
+      "operations": [],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-018",
+      "node": "/Game/Kutun/Characters/Player/BP_Telekinezi.BP_Telekinezi:EventGraph.K2Node_DynamicCast_0",
+      "target": "BP_Sword",
+      "priority": "P2",
+      "group": "SWORD",
+      "purpose": "Kılıç erişimi",
+      "operations": [],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-019",
+      "node": "/Game/Kutun/Characters/Player/BP_Telekinezi.BP_Telekinezi:EventGraph.K2Node_DynamicCast_1",
+      "target": "LevelSequenceActor",
+      "priority": "P2",
+      "group": "SEQ",
+      "purpose": "SequencePlayer erişimi",
+      "operations": [],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-020",
+      "node": "/Game/Kutun/Characters/Player/BP_Telekinezi.BP_Telekinezi:EventGraph.K2Node_DynamicCast_3",
+      "target": "UC_HealthComponent",
+      "priority": "P2",
+      "group": "HEALTH",
+      "purpose": "Sağlık bileşeni erişimi",
+      "operations": [],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-021",
+      "node": "/Game/Kutun/Characters/Player/BP_Telekinezi.BP_Telekinezi:EventGraph.K2Node_Composite_12.Sets.K2Node_DynamicCast_0",
+      "target": "BP_ProjectileBase",
+      "priority": "P2",
+      "group": "PROJECTILE",
+      "purpose": "Mermi/çarpışma etkileşimi",
+      "operations": [],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-022",
+      "node": "/Game/Kutun/Characters/Player/BP_Telekinezi.BP_Telekinezi:LoadMouseSensitivity.K2Node_DynamicCast_0",
+      "target": "SG_Settings",
+      "priority": "P2",
+      "group": "SAVE",
+      "purpose": "Kayıt verisi erişimi",
+      "operations": [],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-023",
+      "node": "/Game/Kutun/Characters/Player/BP_Telekinezi.BP_Telekinezi:SaveMouseSensitivity.K2Node_DynamicCast_0",
+      "target": "SG_Settings",
+      "priority": "P2",
+      "group": "SAVE",
+      "purpose": "Kayıt verisi erişimi",
+      "operations": [],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-024",
+      "node": "/Game/Kutun/Characters/Uldiz/Animations/ABP_ULDIZ.ABP_ULDIZ:EventGraph.K2Node_DynamicCast_0",
+      "target": "Character",
+      "priority": "P3",
+      "group": "NATIVE",
+      "purpose": "Motor tipi erişimi; typed referans veya uygun sözleşme ile değerlendir",
+      "operations": [],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-025",
+      "node": "/Game/Kutun/Cinematics/CaveOpening/BP_CutsceneDirector.BP_CutsceneDirector:FinishHandoff.K2Node_DynamicCast_0",
+      "target": "BP_StandGameMode",
+      "priority": "P2",
+      "group": "MATCH",
+      "purpose": "Maç/kill/HUD akışı",
+      "operations": [],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-026",
+      "node": "/Game/Kutun/Core/Components/UC_HealthComponent.UC_HealthComponent:ShowHealthBarIfMatchRunning.K2Node_DynamicCast_5",
+      "target": "BP_StandGameMode",
+      "priority": "P2",
+      "group": "MATCH",
+      "purpose": "Maç/kill/HUD akışı",
+      "operations": [],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-027",
+      "node": "/Game/Kutun/Core/Components/UC_HealthComponent.UC_HealthComponent:ShowHealthBarIfMatchRunning.K2Node_DynamicCast_6",
+      "target": "BP_Telekinezi",
+      "priority": "P1",
+      "group": "CIN",
+      "purpose": "Sinematik durumunu oku",
+      "operations": [
+        "|GetbIsCinematicActive"
+      ],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-028",
+      "node": "/Game/Kutun/Core/GameMode/BP_StandGameMode.BP_StandGameMode:BeginStandMatch.K2Node_DynamicCast_0",
+      "target": "UC_HealthComponent",
+      "priority": "P2",
+      "group": "HEALTH",
+      "purpose": "Sağlık bileşeni erişimi",
+      "operations": [],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-029",
+      "node": "/Game/Kutun/Gameplay/BP_DeathZone.BP_DeathZone:EventGraph.K2Node_DynamicCast_3",
+      "target": "UC_HealthComponent",
+      "priority": "P2",
+      "group": "HEALTH",
+      "purpose": "Sağlık bileşeni erişimi",
+      "operations": [],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-030",
+      "node": "/Game/Kutun/UI/Widgets/WBP_Options.WBP_Options:InitMouseSens.K2Node_DynamicCast_2",
+      "target": "SG_Settings",
+      "priority": "P2",
+      "group": "SAVE",
+      "purpose": "Kayıt verisi erişimi",
+      "operations": [],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-031",
+      "node": "/Game/Kutun/UI/Widgets/WBP_Options.WBP_Options:SaveMouseSens.K2Node_DynamicCast_1",
+      "target": "BP_Telekinezi",
+      "priority": "P1",
+      "group": "SET",
+      "purpose": "Fare hassasiyeti oku/yaz/kaydet",
+      "operations": [
+        "|SetMouseSensitivity",
+        "|SetbMouseSensLoaded"
+      ],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-032",
+      "node": "/Game/Kutun/UI/Widgets/WBP_Options.WBP_Options:SaveMouseSens.K2Node_DynamicCast_2",
+      "target": "SG_Settings",
+      "priority": "P2",
+      "group": "SAVE",
+      "purpose": "Kayıt verisi erişimi",
+      "operations": [],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-033",
+      "node": "/Game/Kutun/UI/Widgets/WBP_PauseMenu.WBP_PauseMenu:EventGraph.K2Node_DynamicCast_0",
+      "target": "BP_Telekinezi",
+      "priority": "P1",
+      "group": "SET",
+      "purpose": "Fare hassasiyeti oku/yaz/kaydet",
+      "operations": [
+        "MouseSens|SaveMouseSensitivity"
+      ],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-034",
+      "node": "/Game/Kutun/UI/Widgets/WBP_PauseMenu.WBP_PauseMenu:EventGraph.K2Node_DynamicCast_1",
+      "target": "BP_Telekinezi",
+      "priority": "P1",
+      "group": "SET",
+      "purpose": "Fare hassasiyeti oku/yaz/kaydet",
+      "operations": [
+        "MouseSens|SaveMouseSensitivity"
+      ],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-035",
+      "node": "/Game/Kutun/UI/Widgets/WBP_PauseMenu.WBP_PauseMenu:InitMouseSens.K2Node_DynamicCast_1",
+      "target": "BP_Telekinezi",
+      "priority": "P1",
+      "group": "SET",
+      "purpose": "Fare hassasiyeti oku/yaz/kaydet",
+      "operations": [
+        "|GetbMouseSensLoaded",
+        "MouseSens|LoadMouseSensitivity",
+        "|GetMouseSensitivity"
+      ],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-036",
+      "node": "/Game/Kutun/UI/Widgets/WBP_Restart.WBP_Restart:EventGraph.K2Node_DynamicCast_1",
+      "target": "BP_StandGameMode",
+      "priority": "P2",
+      "group": "MATCH",
+      "purpose": "Maç/kill/HUD akışı",
+      "operations": [],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-037",
+      "node": "/Game/Kutun/UI/Widgets/WBP_Result.WBP_Result:EventGraph.K2Node_DynamicCast_2",
+      "target": "BP_StandGameMode",
+      "priority": "P2",
+      "group": "MATCH",
+      "purpose": "Maç/kill/HUD akışı",
+      "operations": [],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-038",
+      "node": "/Game/Kutun/UI/Widgets/WBP_StandHUD.WBP_StandHUD:EventGraph.K2Node_DynamicCast_4",
+      "target": "BP_StandGameMode",
+      "priority": "P2",
+      "group": "MATCH",
+      "purpose": "Maç/kill/HUD akışı",
+      "operations": [],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-039",
+      "node": "/Game/Kutun/UI/Widgets/WBP_Timer.WBP_Timer:EventGraph.K2Node_DynamicCast_4",
+      "target": "BP_Telekinezi",
+      "priority": "P1",
+      "group": "STATS",
+      "purpose": "Souls değerini oku",
+      "operations": [
+        "|GetSouls"
+      ],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-040",
+      "node": "/Game/Kutun/Weapons/Axe/BP_Axe.BP_Axe:ApplyAxeDamage.K2Node_DynamicCast_1",
+      "target": "UC_HealthComponent",
+      "priority": "P2",
+      "group": "HEALTH",
+      "purpose": "Sağlık bileşeni erişimi",
+      "operations": [],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-041",
+      "node": "/Game/Kutun/Weapons/Balbal/BP_ProjectileBase.BP_ProjectileBase:EventGraph.K2Node_DynamicCast_0",
+      "target": "BP_ProjectileBase",
+      "priority": "P2",
+      "group": "PROJECTILE",
+      "purpose": "Mermi/çarpışma etkileşimi",
+      "operations": [],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-042",
+      "node": "/Game/Kutun/Weapons/BP_Throwable.BP_Throwable:TryDealDamage.K2Node_DynamicCast_2",
+      "target": "UC_HealthComponent",
+      "priority": "P2",
+      "group": "HEALTH",
+      "purpose": "Sağlık bileşeni erişimi",
+      "operations": [],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-043",
+      "node": "/Game/Kutun/Weapons/Sword/BP_Sword.BP_Sword:EventGraph.K2Node_DynamicCast_0",
+      "target": "Actor",
+      "priority": "P3",
+      "group": "NATIVE",
+      "purpose": "Motor tipi erişimi; typed referans veya uygun sözleşme ile değerlendir",
+      "operations": [],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-044",
+      "node": "/Game/Kutun/Weapons/Sword/BP_Sword.BP_Sword:EventGraph.t2_DynamicCast_1",
+      "target": "BP_Enemy",
+      "priority": "P2",
+      "group": "COMBAT",
+      "purpose": "Düşman etkileşimi",
+      "operations": [],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-045",
+      "node": "/Game/Kutun/Weapons/Sword/BP_Sword.BP_Sword:EventGraph.t5_DynamicCast_1",
+      "target": "BP_Telekinezi",
+      "priority": "P1",
+      "group": "SWORD",
+      "purpose": "Karakter mesh/soket veya kılıç durumunu oku/yaz",
+      "operations": [
+        "|GetMesh"
+      ],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-046",
+      "node": "/Game/Kutun/Weapons/Sword/BP_Sword.BP_Sword:EventGraph.t9_DynamicCast_1",
+      "target": "BP_Telekinezi",
+      "priority": "P1",
+      "group": "SWORD",
+      "purpose": "Karakter mesh/soket veya kılıç durumunu oku/yaz",
+      "operations": [
+        "|GetMesh"
+      ],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-047",
+      "node": "/Game/Kutun/Weapons/Sword/BP_Sword.BP_Sword:EventGraph.t9_DynamicCast_2",
+      "target": "BP_Telekinezi",
+      "priority": "P1",
+      "group": "SWORD",
+      "purpose": "Karakter mesh/soket veya kılıç durumunu oku/yaz",
+      "operations": [
+        "|SetbReturning?",
+        "|SetbSwordOnHand"
+      ],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-048",
+      "node": "/Game/Kutun/Weapons/SwordMount/BP_SwordMount.BP_SwordMount:EventGraph.K2Node_DynamicCast_1",
+      "target": "PlayerController",
+      "priority": "P3",
+      "group": "NATIVE",
+      "purpose": "Motor tipi erişimi; typed referans veya uygun sözleşme ile değerlendir",
+      "operations": [],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-049",
+      "node": "/Game/Kutun/Weapons/SwordMount/BP_SwordMount.BP_SwordMount:EventGraph.K2Node_DynamicCast_2",
+      "target": "PlayerController",
+      "priority": "P3",
+      "group": "NATIVE",
+      "purpose": "Motor tipi erişimi; typed referans veya uygun sözleşme ile değerlendir",
+      "operations": [],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-050",
+      "node": "/Game/Kutun/Weapons/SwordMount/BP_SwordMount.BP_SwordMount:MountTryDealDamage.K2Node_DynamicCast_2",
+      "target": "UC_HealthComponent",
+      "priority": "P2",
+      "group": "HEALTH",
+      "purpose": "Sağlık bileşeni erişimi",
+      "operations": [],
+      "connected": true,
+      "status": "bekliyor"
+    },
+    {
+      "id": "CAST-051",
+      "node": "/Game/ThirdPerson/Blueprints/BP_ThirdPersonPlayerController.BP_ThirdPersonPlayerController:EventGraph.K2Node_DynamicCast_0",
+      "target": "BP_SwordMount",
+      "priority": "P2",
+      "group": "SURF",
+      "purpose": "Kılıç sörfü etkileşimi",
+      "operations": [],
+      "connected": true,
+      "status": "bekliyor"
+    }
+  ],
+  "scheduling_status": "deferred_until_after_bug_fixes",
+  "scheduling_decision_date": "2026-11-17"
+}

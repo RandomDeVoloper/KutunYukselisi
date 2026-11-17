@@ -1,0 +1,61 @@
+(event EventBeginPlay
+ (bind guides (Widget|GetAllWidgetsOfClass "/Game/Kutun/UI/Widgets/WBP_TutorialControls.WBP_TutorialControls_C"))
+ (if (== (Utilities|Array|Length guides) 0)
+  (bind guide (UserInterface|CreateWidget "/Game/Kutun/UI/Widgets/WBP_TutorialControls.WBP_TutorialControls_C" (Game|GetPlayerController 0)))
+  (Variables|Default|SetTutorialControls guide)
+  (UserInterface|Viewport|AddtoViewport :self guide :ZOrder 15)
+  (else
+   (for existing guides
+    (bind guide (Utilities|Casting|CastToWBP_TutorialControls :Object existing)
+     (:then (Variables|Default|SetTutorialControls guide))
+     (:CastFailed))))))
+(event Collision|EventActorBeginOverlap (OtherActor)
+ (if (and (== OtherActor (Game|GetPlayerPawn 0)) (and (not (Variables|Default|GetTutorialActive)) (not (and (Variables|Default|GetTriggerOnce) (Variables|Default|GetTutorialFinished)))))
+  (bind player (Utilities|Casting|CastToBP_Telekinezi :Object OtherActor)
+   (:then
+    (Variables|Default|SetPlayerInsideTutorial true)
+    (Variables|Default|SetTutorialPlayer player)
+    (CallFunction|StartTutorial))
+   (:CastFailed
+    (bind mount (Utilities|Casting|CastToBP_SwordMount :Object OtherActor)
+     (:then
+      (bind rider (Utilities|Casting|CastToBP_Telekinezi :Object (Class|BPSwordMount|GetRiderRef mount))
+       (:then (Variables|Default|SetPlayerInsideTutorial true) (Variables|Default|SetTutorialPlayer rider) (CallFunction|StartTutorial))
+       (:CastFailed)))
+     (:CastFailed))))))
+(event EventTick (DeltaSeconds)
+ (if (Variables|Default|GetTutorialActive)
+  (Utilities|IsValid (Variables|Default|GetPromptWidget)
+   (:"Is Valid"
+    (if (Appearance|IsinViewport (Variables|Default|GetPromptWidget))
+     (Utilities|IsValid (Variables|Default|GetTutorialPlayer)
+      (:"Is Valid"
+       (if (not (Class|BPTelekinezi|GetIsCinematicActive (Variables|Default|GetTutorialPlayer)))
+        (if (Variables|Default|GetTutorialFinished)
+         (Variables|Default|SetTutorialSuccessElapsed (+ (Variables|Default|GetTutorialSuccessElapsed) DeltaSeconds))
+         (if (>= (Variables|Default|GetTutorialSuccessElapsed) 2.5)
+          (Variables|Default|SetTutorialActive false)
+          (Widget|RemovefromParent (Variables|Default|GetPromptWidget)))
+         (else
+          (Variables|Default|SetTutorialElapsed (+ (Variables|Default|GetTutorialElapsed) DeltaSeconds))
+          (Variables|Default|SetTutorialPollElapsed (+ (Variables|Default|GetTutorialPollElapsed) DeltaSeconds))
+          (if (>= (Variables|Default|GetTutorialPollElapsed) 0.1)
+           (Variables|Default|SetTutorialPollElapsed 0.0)
+           (CallFunction|CheckTutorialAction)
+           (if (and (not (Variables|Default|GetTutorialFinished)) (and (> (Variables|Default|GetDuration) 0.0) (>= (Variables|Default|GetTutorialElapsed) (Variables|Default|GetDuration))))
+            (if (== (Variables|Default|GetTutorialKind) 0)
+             (CallFunction|CompleteTutorial)
+             (else (CallFunction|RestartTutorial))))
+           (CallFunction|RefreshTutorial)))))))
+     (else (Variables|Default|SetTutorialActive false))))
+   (:"Is Not Valid" (Variables|Default|SetTutorialActive false)))
+  (else
+   (if (and (Variables|Default|GetPlayerInsideTutorial) (not (Variables|Default|GetTutorialFinished)))
+    (Variables|Default|SetTutorialPollElapsed (+ (Variables|Default|GetTutorialPollElapsed) DeltaSeconds))
+    (if (>= (Variables|Default|GetTutorialPollElapsed) 0.2)
+     (Variables|Default|SetTutorialPollElapsed 0.0)
+     (CallFunction|StartTutorial))))))
+(event Collision|EventActorEndOverlap (OtherActor)
+ (if (or (== OtherActor (Game|GetPlayerPawn 0)) (== OtherActor (Variables|Default|GetTutorialPlayer)))
+  (Variables|Default|SetPlayerInsideTutorial false)))
+

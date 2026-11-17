@@ -1,0 +1,979 @@
+[
+  {
+    "instance": {
+      "refPath": "/Game/Kutun/UI/Widgets/WBP_StandHUD.WBP_StandHUD:WidgetTree.TimerPlate"
+    },
+    "values": {
+      "brushColor": {
+        "r": 0.004391442037410293,
+        "g": 0.007499032043226175,
+        "b": 0.027320891639074894,
+        "a": 0.9
+      },
+      "visibility": "HitTestInvisible",
+      "padding": {
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0
+      }
+    }
+  },
+  {
+    "instance": {
+      "refPath": "/Game/Kutun/UI/Widgets/WBP_StandHUD.WBP_StandHUD:WidgetTree.ScorePlate"
+    },
+    "values": {
+      "brushColor": {
+        "r": 0.004391442037410293,
+        "g": 0.007499032043226175,
+        "b": 0.027320891639074894,
+        "a": 0.9
+      },
+      "visibility": "HitTestInvisible",
+      "padding": {
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0
+      }
+    }
+  },
+  {
+    "instance": {
+      "refPath": "/Game/Kutun/UI/Widgets/WBP_HealthBar.WBP_HealthBar:WidgetTree.HealthPlate"
+    },
+    "values": {
+      "brushColor": {
+        "r": 0.004391442037410293,
+        "g": 0.007499032043226175,
+        "b": 0.027320891639074894,
+        "a": 0.9
+      },
+      "visibility": "HitTestInvisible",
+      "padding": {
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0
+      }
+    }
+  },
+  {
+    "instance": {
+      "refPath": "/Game/Kutun/UI/Widgets/WBP_StandHUD.WBP_StandHUD:WidgetTree.TimerAccent"
+    },
+    "values": {
+      "brushColor": {
+        "r": 0.6444796819705821,
+        "g": 0.45078578283822346,
+        "b": 0.1946178304415758,
+        "a": 1
+      },
+      "visibility": "HitTestInvisible",
+      "padding": {
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0
+      }
+    }
+  },
+  {
+    "instance": {
+      "refPath": "/Game/Kutun/UI/Widgets/WBP_StandHUD.WBP_StandHUD:WidgetTree.ScoreAccent"
+    },
+    "values": {
+      "brushColor": {
+        "r": 0.6444796819705821,
+        "g": 0.45078578283822346,
+        "b": 0.1946178304415758,
+        "a": 1
+      },
+      "visibility": "HitTestInvisible",
+      "padding": {
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0
+      }
+    }
+  },
+  {
+    "instance": {
+      "refPath": "/Game/Kutun/UI/Widgets/WBP_StandHUD.WBP_StandHUD:WidgetTree.RootCanvas.CanvasPanelSlot_3"
+    },
+    "values": {
+      "layoutData": {
+        "offsets": {
+          "left": 0,
+          "top": 26,
+          "right": 224,
+          "bottom": 104
+        },
+        "anchors": {
+          "minimum": {
+            "x": 0.5,
+            "y": 0
+          },
+          "maximum": {
+            "x": 0.5,
+            "y": 0
+          }
+        },
+        "alignment": {
+          "x": 0.5,
+          "y": 0
+        }
+      },
+      "bAutoSize": false,
+      "zOrder": -10
+    }
+  },
+  {
+    "instance": {
+      "refPath": "/Game/Kutun/UI/Widgets/WBP_StandHUD.WBP_StandHUD:WidgetTree.RootCanvas.CanvasPanelSlot_5"
+    },
+    "values": {
+      "layoutData": {
+        "offsets": {
+          "left": 0,
+          "top": 26,
+          "right": 224,
+          "bottom": 2
+        },
+        "anchors": {
+          "minimum": {
+            "x": 0.5,
+            "y": 0
+          },
+          "maximum": {
+            "x": 0.5,
+            "y": 0
+          }
+        },
+        "alignment": {
+          "x": 0.5,
+          "y": 0
+        }
+      },
+      "bAutoSize": false,
+      "zOrder": -9
+    }
+  },
+  {
+    "instance": {
+      "refPath": "/Game/Kutun/UI/Widgets/WBP_StandHUD.WBP_StandHUD:WidgetTree.RootCanvas.CanvasPanelSlot_4"
+    },
+    "values": {
+      "layoutData": {
+        "offsets": {
+          "left": -44,
+          "top": 26,
+          "right": 240,
+          "bottom": 104
+        },
+        "anchors": {
+          "minimum": {
+            "x": 1,
+            "y": 0
+          },
+          "maximum": {
+            "x": 1,
+            "y": 0
+          }
+        },
+        "alignment": {
+          "x": 1,
+          "y": 0
+        }
+      },
+      "bAutoSize": false,
+      "zOrder": -10
+    }
+  },
+  {
+    "instance": {
+      "refPath": "/Game/Kutun/UI/Widgets/WBP_StandHUD.WBP_StandHUD:WidgetTree.RootCanvas.CanvasPanelSlot_6"
+    },
+    "values": {
+      "layoutData": {
+        "offsets": {
+          "left": -44,
+          "top": 26,
+          "right": 240,
+          "bottom": 2
+        },
+        "anchors": {
+          "minimum": {
+            "x": 1,
+            "y": 0
+          },
+          "maximum": {
+            "x": 1,
+            "y": 0
+          }
+        },
+        "alignment": {
+          "x": 1,
+          "y": 0
+        }
+      },
+      "bAutoSize": false,
+      "zOrder": -9
+    }
+  },
+  {
+    "instance": {
+      "refPath": "/Game/Kutun/UI/Widgets/WBP_StandHUD.WBP_StandHUD:WidgetTree.TimerText"
+    },
+    "values": {
+      "font": {
+        "fontObject": {
+          "refPath": "/Engine/EngineFonts/Roboto.Roboto"
+        },
+        "fontMaterial": "None",
+        "outlineSettings": {
+          "outlineSize": 0,
+          "bMiteredCorners": false,
+          "bSeparateFillAlpha": false,
+          "bApplyOutlineToDropShadows": false,
+          "outlineMaterial": "None",
+          "outlineColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 1
+          }
+        },
+        "typefaceFontName": "Regular",
+        "size": 34,
+        "letterSpacing": 0,
+        "skewAmount": 0,
+        "bForceMonospaced": false,
+        "bMaterialIsStencil": false,
+        "monospacedWidth": 1
+      },
+      "colorAndOpacity": {
+        "specifiedColor": {
+          "r": 0.8879231178819663,
+          "g": 0.846873231509858,
+          "b": 0.7758222183174236,
+          "a": 1
+        },
+        "colorUseRule": "UseColor_Specified"
+      },
+      "shadowOffset": {
+        "x": 0,
+        "y": 1
+      },
+      "shadowColorAndOpacity": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0.8
+      }
+    }
+  },
+  {
+    "instance": {
+      "refPath": "/Game/Kutun/UI/Widgets/WBP_StandHUD.WBP_StandHUD:WidgetTree.RootCanvas.CanvasPanelSlot_0"
+    },
+    "values": {
+      "layoutData": {
+        "offsets": {
+          "left": 0,
+          "top": 65,
+          "right": 180,
+          "bottom": 48
+        },
+        "anchors": {
+          "minimum": {
+            "x": 0.5,
+            "y": 0
+          },
+          "maximum": {
+            "x": 0.5,
+            "y": 0
+          }
+        },
+        "alignment": {
+          "x": 0.5,
+          "y": 0
+        }
+      },
+      "bAutoSize": true,
+      "zOrder": 1
+    }
+  },
+  {
+    "instance": {
+      "refPath": "/Game/Kutun/UI/Widgets/WBP_StandHUD.WBP_StandHUD:WidgetTree.ScoreText_1"
+    },
+    "values": {
+      "text": "KALAN SÜRE",
+      "font": {
+        "fontObject": {
+          "refPath": "/Engine/EngineFonts/Roboto.Roboto"
+        },
+        "fontMaterial": "None",
+        "outlineSettings": {
+          "outlineSize": 0,
+          "bMiteredCorners": false,
+          "bSeparateFillAlpha": false,
+          "bApplyOutlineToDropShadows": false,
+          "outlineMaterial": "None",
+          "outlineColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 1
+          }
+        },
+        "typefaceFontName": "Bold",
+        "size": 12,
+        "letterSpacing": 160,
+        "skewAmount": 0,
+        "bForceMonospaced": false,
+        "bMaterialIsStencil": false,
+        "monospacedWidth": 1
+      },
+      "colorAndOpacity": {
+        "specifiedColor": {
+          "r": 0.6444796819705821,
+          "g": 0.45078578283822346,
+          "b": 0.1946178304415758,
+          "a": 1
+        },
+        "colorUseRule": "UseColor_Specified"
+      }
+    }
+  },
+  {
+    "instance": {
+      "refPath": "/Game/Kutun/UI/Widgets/WBP_StandHUD.WBP_StandHUD:WidgetTree.RootCanvas.CanvasPanelSlot_2"
+    },
+    "values": {
+      "layoutData": {
+        "offsets": {
+          "left": 0,
+          "top": 44,
+          "right": 160,
+          "bottom": 20
+        },
+        "anchors": {
+          "minimum": {
+            "x": 0.5,
+            "y": 0
+          },
+          "maximum": {
+            "x": 0.5,
+            "y": 0
+          }
+        },
+        "alignment": {
+          "x": 0.5,
+          "y": 0
+        }
+      },
+      "bAutoSize": true,
+      "zOrder": 1
+    }
+  },
+  {
+    "instance": {
+      "refPath": "/Game/Kutun/UI/Widgets/WBP_StandHUD.WBP_StandHUD:WidgetTree.ArenaLabel"
+    },
+    "values": {
+      "text": "ARENA",
+      "font": {
+        "fontObject": {
+          "refPath": "/Engine/EngineFonts/Roboto.Roboto"
+        },
+        "fontMaterial": "None",
+        "outlineSettings": {
+          "outlineSize": 0,
+          "bMiteredCorners": false,
+          "bSeparateFillAlpha": false,
+          "bApplyOutlineToDropShadows": false,
+          "outlineMaterial": "None",
+          "outlineColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 1
+          }
+        },
+        "typefaceFontName": "Bold",
+        "size": 12,
+        "letterSpacing": 160,
+        "skewAmount": 0,
+        "bForceMonospaced": false,
+        "bMaterialIsStencil": false,
+        "monospacedWidth": 1
+      },
+      "colorAndOpacity": {
+        "specifiedColor": {
+          "r": 0.6444796819705821,
+          "g": 0.45078578283822346,
+          "b": 0.1946178304415758,
+          "a": 1
+        },
+        "colorUseRule": "UseColor_Specified"
+      },
+      "visibility": "HitTestInvisible"
+    }
+  },
+  {
+    "instance": {
+      "refPath": "/Game/Kutun/UI/Widgets/WBP_StandHUD.WBP_StandHUD:WidgetTree.RootCanvas.CanvasPanelSlot_7"
+    },
+    "values": {
+      "layoutData": {
+        "offsets": {
+          "left": -64,
+          "top": 44,
+          "right": 200,
+          "bottom": 20
+        },
+        "anchors": {
+          "minimum": {
+            "x": 1,
+            "y": 0
+          },
+          "maximum": {
+            "x": 1,
+            "y": 0
+          }
+        },
+        "alignment": {
+          "x": 1,
+          "y": 0
+        }
+      },
+      "bAutoSize": false,
+      "zOrder": 1
+    }
+  },
+  {
+    "instance": {
+      "refPath": "/Game/Kutun/UI/Widgets/WBP_StandHUD.WBP_StandHUD:WidgetTree.ScoreText"
+    },
+    "values": {
+      "font": {
+        "fontObject": {
+          "refPath": "/Engine/EngineFonts/Roboto.Roboto"
+        },
+        "fontMaterial": "None",
+        "outlineSettings": {
+          "outlineSize": 0,
+          "bMiteredCorners": false,
+          "bSeparateFillAlpha": false,
+          "bApplyOutlineToDropShadows": false,
+          "outlineMaterial": "None",
+          "outlineColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 1
+          }
+        },
+        "typefaceFontName": "Regular",
+        "size": 22,
+        "letterSpacing": 0,
+        "skewAmount": 0,
+        "bForceMonospaced": false,
+        "bMaterialIsStencil": false,
+        "monospacedWidth": 1
+      },
+      "colorAndOpacity": {
+        "specifiedColor": {
+          "r": 0.8879231178819663,
+          "g": 0.846873231509858,
+          "b": 0.7758222183174236,
+          "a": 1
+        },
+        "colorUseRule": "UseColor_Specified"
+      },
+      "shadowOffset": {
+        "x": 0,
+        "y": 1
+      },
+      "shadowColorAndOpacity": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0.8
+      }
+    }
+  },
+  {
+    "instance": {
+      "refPath": "/Game/Kutun/UI/Widgets/WBP_StandHUD.WBP_StandHUD:WidgetTree.RootCanvas.CanvasPanelSlot_1"
+    },
+    "values": {
+      "layoutData": {
+        "offsets": {
+          "left": -64,
+          "top": 76,
+          "right": 200,
+          "bottom": 30
+        },
+        "anchors": {
+          "minimum": {
+            "x": 1,
+            "y": 0
+          },
+          "maximum": {
+            "x": 1,
+            "y": 0
+          }
+        },
+        "alignment": {
+          "x": 1,
+          "y": 0
+        }
+      },
+      "bAutoSize": false,
+      "zOrder": 1
+    }
+  },
+  {
+    "instance": {
+      "refPath": "/Game/Kutun/UI/Widgets/WBP_HealthBar.WBP_HealthBar:WidgetTree.RootCanvas.CanvasPanelSlot_2"
+    },
+    "values": {
+      "layoutData": {
+        "offsets": {
+          "left": 44,
+          "top": -32,
+          "right": 368,
+          "bottom": 100
+        },
+        "anchors": {
+          "minimum": {
+            "x": 0,
+            "y": 1
+          },
+          "maximum": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "alignment": {
+          "x": 0,
+          "y": 1
+        }
+      },
+      "bAutoSize": false,
+      "zOrder": 0
+    }
+  },
+  {
+    "instance": {
+      "refPath": "/Game/Kutun/UI/Widgets/WBP_HealthBar.WBP_HealthBar:WidgetTree.HealthLabel"
+    },
+    "values": {
+      "text": "YAŞAM",
+      "font": {
+        "fontObject": {
+          "refPath": "/Engine/EngineFonts/Roboto.Roboto"
+        },
+        "fontMaterial": "None",
+        "outlineSettings": {
+          "outlineSize": 0,
+          "bMiteredCorners": false,
+          "bSeparateFillAlpha": false,
+          "bApplyOutlineToDropShadows": false,
+          "outlineMaterial": "None",
+          "outlineColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 1
+          }
+        },
+        "typefaceFontName": "Bold",
+        "size": 12,
+        "letterSpacing": 160,
+        "skewAmount": 0,
+        "bForceMonospaced": false,
+        "bMaterialIsStencil": false,
+        "monospacedWidth": 1
+      },
+      "colorAndOpacity": {
+        "specifiedColor": {
+          "r": 0.6444796819705821,
+          "g": 0.45078578283822346,
+          "b": 0.1946178304415758,
+          "a": 1
+        },
+        "colorUseRule": "UseColor_Specified"
+      },
+      "visibility": "HitTestInvisible"
+    }
+  },
+  {
+    "instance": {
+      "refPath": "/Game/Kutun/UI/Widgets/WBP_HealthBar.WBP_HealthBar:WidgetTree.RootCanvas.CanvasPanelSlot_3"
+    },
+    "values": {
+      "layoutData": {
+        "offsets": {
+          "left": 64,
+          "top": -90,
+          "right": 150,
+          "bottom": 22
+        },
+        "anchors": {
+          "minimum": {
+            "x": 0,
+            "y": 1
+          },
+          "maximum": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "alignment": {
+          "x": 0,
+          "y": 1
+        }
+      },
+      "bAutoSize": false,
+      "zOrder": 12
+    }
+  },
+  {
+    "instance": {
+      "refPath": "/Game/Kutun/UI/Widgets/WBP_HealthBar.WBP_HealthBar:WidgetTree.HealthText"
+    },
+    "values": {
+      "font": {
+        "fontObject": {
+          "refPath": "/Engine/EngineFonts/Roboto.Roboto"
+        },
+        "fontMaterial": "None",
+        "outlineSettings": {
+          "outlineSize": 0,
+          "bMiteredCorners": false,
+          "bSeparateFillAlpha": false,
+          "bApplyOutlineToDropShadows": false,
+          "outlineMaterial": "None",
+          "outlineColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 1
+          }
+        },
+        "typefaceFontName": "Regular",
+        "size": 18,
+        "letterSpacing": 0,
+        "skewAmount": 0,
+        "bForceMonospaced": false,
+        "bMaterialIsStencil": false,
+        "monospacedWidth": 1
+      },
+      "colorAndOpacity": {
+        "specifiedColor": {
+          "r": 0.8879231178819663,
+          "g": 0.846873231509858,
+          "b": 0.7758222183174236,
+          "a": 1
+        },
+        "colorUseRule": "UseColor_Specified"
+      },
+      "justification": "Right"
+    }
+  },
+  {
+    "instance": {
+      "refPath": "/Game/Kutun/UI/Widgets/WBP_HealthBar.WBP_HealthBar:WidgetTree.RootCanvas.CanvasPanelSlot_1"
+    },
+    "values": {
+      "layoutData": {
+        "offsets": {
+          "left": 384,
+          "top": -87,
+          "right": 120,
+          "bottom": 30
+        },
+        "anchors": {
+          "minimum": {
+            "x": 0,
+            "y": 1
+          },
+          "maximum": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "alignment": {
+          "x": 1,
+          "y": 1
+        }
+      },
+      "bAutoSize": false,
+      "zOrder": 12
+    }
+  },
+  {
+    "instance": {
+      "refPath": "/Game/Kutun/UI/Widgets/WBP_HealthBar.WBP_HealthBar:WidgetTree.PB_Health"
+    },
+    "values": {
+      "widgetStyle": {
+        "backgroundImage": {
+          "tintColor": {
+            "specifiedColor": {
+              "r": 0.6444796819705821,
+              "g": 0.45078578283822346,
+              "b": 0.1946178304415758,
+              "a": 0.18
+            },
+            "colorUseRule": "UseColor_Specified"
+          },
+          "drawAs": "Box",
+          "tiling": "NoTile",
+          "mirroring": "NoMirror",
+          "imageType": "FullColor",
+          "imageSize": {
+            "x": 0,
+            "y": 0
+          },
+          "margin": {
+            "left": 0.4166666567325592,
+            "top": 0.4166666567325592,
+            "right": 0.4166666567325592,
+            "bottom": 0.4166666567325592
+          },
+          "resourceObject": "None",
+          "outlineSettings": {
+            "cornerRadii": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 0
+            },
+            "color": {
+              "specifiedColor": {
+                "r": 0,
+                "g": 0,
+                "b": 0,
+                "a": 0
+              },
+              "colorUseRule": "UseColor_Specified"
+            },
+            "width": 0,
+            "roundingType": "HalfHeightRadius",
+            "bUseBrushTransparency": false
+          },
+          "uVRegion": {
+            "min": {
+              "x": 0,
+              "y": 0
+            },
+            "max": {
+              "x": 0,
+              "y": 0
+            },
+            "bIsValid": false
+          },
+          "bIsDynamicallyLoaded": false,
+          "resourceName": "../../../Engine/Content/Slate/Common/ProgressBar_Background.png"
+        },
+        "fillImage": {
+          "tintColor": {
+            "specifiedColor": {
+              "r": 1,
+              "g": 1,
+              "b": 1,
+              "a": 1
+            },
+            "colorUseRule": "UseColor_Specified"
+          },
+          "drawAs": "Box",
+          "tiling": "NoTile",
+          "mirroring": "NoMirror",
+          "imageType": "FullColor",
+          "imageSize": {
+            "x": 0,
+            "y": 0
+          },
+          "margin": {
+            "left": 0.4166666567325592,
+            "top": 0.4166666567325592,
+            "right": 0.4166666567325592,
+            "bottom": 0.4166666567325592
+          },
+          "resourceObject": "None",
+          "outlineSettings": {
+            "cornerRadii": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 0
+            },
+            "color": {
+              "specifiedColor": {
+                "r": 0,
+                "g": 0,
+                "b": 0,
+                "a": 0
+              },
+              "colorUseRule": "UseColor_Specified"
+            },
+            "width": 0,
+            "roundingType": "HalfHeightRadius",
+            "bUseBrushTransparency": false
+          },
+          "uVRegion": {
+            "min": {
+              "x": 0,
+              "y": 0
+            },
+            "max": {
+              "x": 0,
+              "y": 0
+            },
+            "bIsValid": false
+          },
+          "bIsDynamicallyLoaded": false,
+          "resourceName": "../../../Engine/Content/Slate/Common/ProgressBar_Fill.png"
+        },
+        "marqueeImage": {
+          "tintColor": {
+            "specifiedColor": {
+              "r": 1,
+              "g": 1,
+              "b": 1,
+              "a": 1
+            },
+            "colorUseRule": "UseColor_Specified"
+          },
+          "drawAs": "Image",
+          "tiling": "Horizontal",
+          "mirroring": "NoMirror",
+          "imageType": "FullColor",
+          "imageSize": {
+            "x": 20,
+            "y": 12
+          },
+          "margin": {
+            "left": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0
+          },
+          "resourceObject": "None",
+          "outlineSettings": {
+            "cornerRadii": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 0
+            },
+            "color": {
+              "specifiedColor": {
+                "r": 0,
+                "g": 0,
+                "b": 0,
+                "a": 0
+              },
+              "colorUseRule": "UseColor_Specified"
+            },
+            "width": 0,
+            "roundingType": "HalfHeightRadius",
+            "bUseBrushTransparency": false
+          },
+          "uVRegion": {
+            "min": {
+              "x": 0,
+              "y": 0
+            },
+            "max": {
+              "x": 0,
+              "y": 0
+            },
+            "bIsValid": false
+          },
+          "bIsDynamicallyLoaded": false,
+          "resourceName": "../../../Engine/Content/Slate/Common/ProgressBar_Marquee.png"
+        },
+        "enableFillAnimation": false
+      },
+      "fillColorAndOpacity": {
+        "r": 0.6444796819705821,
+        "g": 0.45078578283822346,
+        "b": 0.1946178304415758,
+        "a": 1
+      },
+      "borderPadding": {
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
+  {
+    "instance": {
+      "refPath": "/Game/Kutun/UI/Widgets/WBP_HealthBar.WBP_HealthBar:WidgetTree.RootCanvas.CanvasPanelSlot_0"
+    },
+    "values": {
+      "layoutData": {
+        "offsets": {
+          "left": 64,
+          "top": -60,
+          "right": 320,
+          "bottom": 8
+        },
+        "anchors": {
+          "minimum": {
+            "x": 0,
+            "y": 1
+          },
+          "maximum": {
+            "x": 0,
+            "y": 1
+          }
+        },
+        "alignment": {
+          "x": 0,
+          "y": 1
+        }
+      },
+      "bAutoSize": false,
+      "zOrder": 12
+    }
+  },
+  {
+    "instance": {
+      "refPath": "/Game/Kutun/UI/Widgets/WBP_TutorialPrompt.WBP_TutorialPrompt:WidgetTree.CanvasPanel_18.CanvasPanelSlot_0"
+    },
+    "values": {
+      "layoutData": {
+        "offsets": {
+          "left": 0,
+          "top": -150,
+          "right": 0,
+          "bottom": 0
+        },
+        "anchors": {
+          "minimum": {
+            "x": 0.035,
+            "y": 1
+          },
+          "maximum": {
+            "x": 0.035,
+            "y": 1
+          }
+        },
+        "alignment": {
+          "x": 0,
+          "y": 1
+        }
+      },
+      "bAutoSize": true
+    }
+  }
+]

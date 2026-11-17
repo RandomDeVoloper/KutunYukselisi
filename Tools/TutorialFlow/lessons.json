@@ -1,0 +1,124 @@
+{
+  "columns": [
+    "instance",
+    "kind",
+    "duration_per_step",
+    "title",
+    "first_instruction",
+    "second_instruction",
+    "first_hint",
+    "second_hint",
+    "success"
+  ],
+  "kinds": {
+    "0": "informational",
+    "1": "jump",
+    "2": "grab_release",
+    "3": "scale",
+    "4": "pin",
+    "5": "mount",
+    "6": "sword_toggle_twice",
+    "7": "throw_or_crush_practice"
+  },
+  "lessons": [
+    [
+      0,
+      3,
+      30,
+      "BOYUT DEĞİŞTİRME",
+      "Kutuyu hedefle ve sol fare tuşunu basılı tutarak yakala.",
+      "Kutuyu tutarken fare tekerleğini çevir; boyutunu değiştir.",
+      "1 / 2 · Önce nesneyi telekineziyle tut.",
+      "2 / 2 · Tekerleği çevirerek büyüt veya küçült.",
+      "Nesnenin boyutunu değiştirdin."
+    ],
+    [
+      1,
+      1,
+      25,
+      "ENGELİ AŞ",
+      "Önündeki engeli aşmak için zıpla.",
+      "",
+      "Zıplarken engelin alçak noktasını hedefle.",
+      "",
+      "Zıplamayı tamamladın."
+    ],
+    [
+      2,
+      2,
+      30,
+      "TELEKİNEZİ",
+      "Kutuyu hedefle. Sol fare tuşunu basılı tutarak kaldır.",
+      "Kutuyu hareket ettir; ardından sol fare tuşunu bırakarak serbest bırak.",
+      "1 / 2 · Sol fare tuşunu basılı tut.",
+      "2 / 2 · Tuşu bırakarak nesneyi serbest bırak.",
+      "Nesneyi tutup serbest bıraktın."
+    ],
+    [
+      3,
+      4,
+      30,
+      "HAVADA SABİTLE",
+      "Kutuyu sol fare tuşunu basılı tutarak kaldır.",
+      "Kutuyu istediğin konuma getir ve [TAB] ile havada sabitle.",
+      "1 / 2 · Önce kutuyu telekineziyle tut.",
+      "2 / 2 · Kutuyu tutarken [TAB] tuşuna bas.",
+      "Kutuyu havada sabitledin."
+    ],
+    [
+      4,
+      5,
+      35,
+      "UÇAN KILIÇ",
+      "Uçan kılıca yaklaş ve [G] ile üzerine bin.",
+      "",
+      "Kılıç uzaktaysa yaklaş; ardından [G] tuşuna bas.",
+      "",
+      "Uçan kılıca bindin."
+    ],
+    [
+      5,
+      4,
+      35,
+      "KÖPRÜ KUR",
+      "Bir kutuyu sol fare tuşunu basılı tutarak kaldır.",
+      "Kutuyu geçiş yoluna yerleştir ve [TAB] ile sabitle.",
+      "1 / 2 · Köprü için bir kutu seç ve kaldır.",
+      "2 / 2 · [TAB] ile sabitle; diğer kutularla yolu uzat.",
+      "İlk köprü parçasını sabitledin."
+    ],
+    [
+      6,
+      6,
+      30,
+      "KILIÇ KONTROLÜ",
+      "Sağ fare tuşuyla kılıcı çek veya fırlat.",
+      "Sağ fare tuşuna yeniden basarak kılıcı tekrar kontrol et.",
+      "1 / 2 · Sağ fare tuşuna bas.",
+      "2 / 2 · Sağ fareye tekrar bas; kılıcın durumunu değiştir.",
+      "Kılıcı çekip fırlatmayı denedin."
+    ],
+    [
+      7,
+      7,
+      35,
+      "FIRLATMA PRATİĞİ",
+      "Fırlatacağın nesneyi sol fare tuşunu basılı tutarak kaldır.",
+      "Nesneyi bırak, rakibini hedefle ve sol fareye tek tıklayarak fırlat.",
+      "1 / 2 · Önce bir nesneyi tut.",
+      "2 / 2 · Sol fareye tek tıkla fırlat; isabet için rakibini hedefle.",
+      "Fırlatma hareketini tamamladın."
+    ],
+    [
+      8,
+      5,
+      35,
+      "KILIÇLA İLERLE",
+      "Uçan kılıca yaklaş ve [G] ile üzerine bin.",
+      "",
+      "[G] · Uçan kılıca bin. Önündeki güzergâhı kontrol et.",
+      "",
+      "Kılıca bindin; artık ilerleyebilirsin."
+    ]
+  ]
+}

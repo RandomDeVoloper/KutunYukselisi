@@ -1,0 +1,80 @@
+<div id="toygard-ui-concept">
+<style>
+#toygard-ui-concept .tg-stage{min-height:350px;padding:28px;box-sizing:border-box;background:#111512;color:#eee9dd;display:flex;align-items:center;position:relative;overflow:hidden;font-family:Arial,sans-serif;--tg-accent:#bca578;--tg-scale:1}
+#toygard-ui-concept .tg-stage:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,#34554a44,transparent 60%),linear-gradient(140deg,transparent 40%,#bca57809 40%,transparent 41%);pointer-events:none}
+#toygard-ui-concept .tg-stage.sharp{background:#131313;--tg-accent:#c46d52}
+#toygard-ui-concept .sharp:before{background:linear-gradient(110deg,transparent 60%,#b82e2115 60%,transparent 61%)}
+#toygard-ui-concept .tg-panel{position:relative;width:100%;max-width:540px;display:grid;grid-template-columns:40px 1fr;gap:18px;align-items:start}
+#toygard-ui-concept .tg-symbol{color:var(--tg-accent);padding-top:4px;display:flex;justify-content:center}
+#toygard-ui-concept .tg-symbol svg{width:26px;height:26px}
+#toygard-ui-concept .tg-eyebrow{font-size:11px;letter-spacing:2.5px;color:var(--tg-accent);margin:0 0 12px;text-transform:uppercase}
+#toygard-ui-concept .tg-heading{font:400 calc(30px * var(--tg-scale))/1.15 Georgia,serif;margin:0 0 14px;letter-spacing:.3px}
+#toygard-ui-concept .tg-description{font-size:calc(16px * var(--tg-scale));line-height:1.6;color:#dedbd3;margin:0;max-width:390px}
+#toygard-ui-concept .tg-input{display:inline-flex;align-items:center;gap:12px;background:#202620;color:#f3efe5;border:1px solid #737363;border-radius:2px;padding:10px 16px;margin-top:18px;font:500 14px Arial,sans-serif;min-height:44px}
+#toygard-ui-concept .tg-input:hover{border-color:var(--tg-accent);background:#2b322b}
+#toygard-ui-concept .tg-input:disabled{opacity:1;color:var(--tg-accent);border-color:#5a6458;background:#1c241d}
+#toygard-ui-concept .tg-input svg{height:18px;width:18px}
+#toygard-ui-concept .tg-steps{display:flex;gap:7px;margin-top:22px}
+#toygard-ui-concept .tg-segment{width:40px;height:3px;background:#45483f}
+#toygard-ui-concept .tg-segment.done{background:var(--tg-accent)}
+#toygard-ui-concept .tg-footer{display:flex;align-items:center;gap:12px;margin-top:12px;flex-wrap:wrap;color:#b4b8ad;font-size:12px}
+#toygard-ui-concept .tg-restart{border:0;background:transparent;color:#c5c9be;font:400 12px Arial,sans-serif;padding:8px;text-decoration:underline;text-underline-offset:3px;min-height:32px}
+#toygard-ui-concept .sharp .tg-panel{grid-template-columns:1fr;gap:0;border-left:3px solid var(--tg-accent);padding-left:22px;box-sizing:border-box}
+#toygard-ui-concept .sharp .tg-symbol{display:none}
+#toygard-ui-concept .sharp .tg-heading{font:500 calc(31px * var(--tg-scale))/1.1 Arial,sans-serif;text-transform:uppercase;letter-spacing:1.5px}
+#toygard-ui-concept .sharp .tg-input{background:#242120;border-color:#77706d}
+#toygard-ui-concept .sharp .tg-input:hover{background:#332622;border-color:var(--tg-accent)}
+#toygard-ui-concept button:focus-visible{outline:2px solid var(--tg-accent);outline-offset:4px}
+@media(max-width:450px){#toygard-ui-concept .tg-stage{padding:22px 18px;min-height:390px}#toygard-ui-concept .tg-panel{grid-template-columns:26px 1fr;gap:12px}#toygard-ui-concept .tg-heading{font-size:26px}#toygard-ui-concept .sharp .tg-heading{font-size:26px}#toygard-ui-concept .tg-description{font-size:15px}}
+@media(prefers-reduced-motion:no-preference){#toygard-ui-concept .tg-segment{transition:background .18s ease}}
+</style>
+<div class="viz-carousel" aria-label="Toygard tutorial tasarım seçenekleri" data-previous-label="Önceki tasarım" data-next-label="Sonraki tasarım">
+<section data-variant="Ritüel" aria-label="Ritüel tasarımı">
+<div class="tg-stage" aria-label="Ritüel tutorial paneli" data-design="ritual">
+<div class="tg-panel">
+<div class="tg-symbol"><i data-lucide="diamond" aria-hidden="true"></i></div>
+<div>
+<p class="tg-eyebrow">Kutun uyanışı · Telekinezi</p>
+<div aria-live="polite"><h3 class="tg-heading">Nesneyi iradene bağla</h3><p class="tg-description">Kutuyu hedefle. Sol fare tuşunu basılı tutarak havaya kaldır.</p></div>
+<button type="button" class="tg-input cursor-interaction"><i data-lucide="mouse" aria-hidden="true"></i><span>Sol fare · Basılı tut</span></button>
+<div class="tg-steps" role="progressbar" aria-label="Tamamlanan tutorial adımları" aria-valuemin="0" aria-valuemax="2" aria-valuenow="0"><span class="tg-segment"></span><span class="tg-segment"></span></div>
+<div class="tg-footer"><span class="tg-state">Nesneyi kaldır · 1 / 2</span><button type="button" class="tg-restart cursor-interaction" hidden>Yeniden dene</button></div>
+</div></div></div>
+</section>
+<section data-variant="Keskin" aria-label="Keskin tasarımı" hidden>
+<div class="tg-stage sharp" aria-label="Keskin tutorial paneli" data-design="sharp">
+<div class="tg-panel"><div>
+<p class="tg-eyebrow">Telekinezi / Nesne kontrolü</p>
+<div aria-live="polite"><h3 class="tg-heading">Nesneyi kaldır</h3><p class="tg-description">Kutuyu hedefle. Sol fare tuşunu basılı tutarak havaya kaldır.</p></div>
+<button type="button" class="tg-input cursor-interaction"><i data-lucide="mouse" aria-hidden="true"></i><span>Sol fare · Basılı tut</span></button>
+<div class="tg-steps" role="progressbar" aria-label="Tamamlanan tutorial adımları" aria-valuemin="0" aria-valuemax="2" aria-valuenow="0"><span class="tg-segment"></span><span class="tg-segment"></span></div>
+<div class="tg-footer"><span class="tg-state">Nesneyi kaldır · 1 / 2</span><button type="button" class="tg-restart cursor-interaction" hidden>Yeniden dene</button></div>
+</div></div></div>
+</section>
+</div>
+<script>
+(()=>{
+const root=document.getElementById('toygard-ui-concept');
+root.querySelectorAll('[data-design]').forEach(stage=>{
+let step=0;
+const ritual=stage.dataset.design==='ritual';
+const heading=stage.querySelector('.tg-heading'),description=stage.querySelector('.tg-description'),button=stage.querySelector('.tg-input'),label=button.querySelector('span'),status=stage.querySelector('.tg-state'),restart=stage.querySelector('.tg-restart'),progress=stage.querySelector('[role="progressbar"]');
+const options={accent:ritual?'#bca578':'#c46d52',textScale:1};
+const draw=()=>{
+stage.style.setProperty('--tg-accent',options.accent);stage.style.setProperty('--tg-scale',options.textScale);
+heading.textContent=step===0?(ritual?'Nesneyi iradene bağla':'Nesneyi kaldır'):step===1?(ritual?'İradeni mühürle':'Nesneyi sabitle'):(ritual?'Kut sana yanıt verdi':'Kontrol sende');
+description.textContent=step===0?'Kutuyu hedefle. Sol fare tuşunu basılı tutarak havaya kaldır.':step===1?'Kutuyu istediğin konuma getir. [TAB] ile havada sabitle.':'Nesneyi kaldırıp sabitledin. Şimdi onu bir basamak olarak kullanabilirsin.';
+label.textContent=step===0?'Sol fare · Basılı tut':step===1?'TAB · Sabitle':'Tamamlandı';
+button.disabled=step===2;restart.hidden=step!==2;
+status.textContent=step===0?'Nesneyi kaldır · 1 / 2':step===1?'Konumunu sabitle · 2 / 2':'İki adım tamamlandı';
+progress.setAttribute('aria-valuenow',String(step));
+stage.querySelectorAll('.tg-segment').forEach((segment,i)=>segment.classList.toggle('done',i<step));
+};
+button.addEventListener('click',()=>{step=Math.min(2,step+1);draw()});
+restart.addEventListener('click',()=>{step=0;draw()});
+draw();
+if(globalThis.Tweak){const tweak=new Tweak({container:stage,onChange:draw});tweak.addColorPicker(options,'accent',{label:'Vurgu rengi'});tweak.addSlider(options,'textScale',{label:'Yazı ölçeği',min:.9,max:1.15,step:.05});}
+});
+})();
+</script>
+</div>

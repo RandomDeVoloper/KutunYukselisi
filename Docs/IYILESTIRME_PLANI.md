@@ -79,3 +79,31 @@ BP_Telekinezi değişiklikleri:
 Canlı test: Stand_Arena PIE oyuncusunda cinematicDuration=22 ve başlangıçta bIsCinematicActive=true okundu; ardından false'a döndü. Aynı PIE oturumunda open /Game/Kutun/Maps/L_Trailer ile yalnızca oyun dünyasında seyahat edildi; oyuncuda cinematicDuration=40 ve başlangıçta true okundu, süre sonrasında false doğrulandı. Editör haritası Stand_Arena olarak kaldı; harita assetleri kaydedilmedi.
 
 BP_Telekinezi save_assets=true ve is_dirty=false ile kaydedildi. Önceki animasyon önizlemesinin REINST uyarısı compile_blueprint sırasında devam etti; temiz derleme iddia edilmiyor. Runtime PIE başlangıcı başarılıydı. Önceki BUG-0011 düzeltmesi korundu. Yedek: .scratch/cinematic-durations-before-20261117/BP_Telekinezi.uasset.
+
+## 17 Kasım — Animasyon önizleme uyarısı giderildi (BUG-0012)
+
+- Taban a0b11da, dal codex/animation-preview-reference.
+- ABP_Telekinezi InitializeAnimation ve UpdateAnimation girişlerine toplam üç IsValid kontrolü eklendi. Başlangıç yolundaki geçersiz owning actor erişimi de korundu.
+- ABP_Telekinezi ve BP_Telekinezi temiz derlendi; kısa PIE testinden sonra warnings_as_errors=true ile tekrar başarıyla derlendiler. Önceki notlarda kalan temiz derleme engeli bu değişiklikle giderildi.
+- Runtime animasyonun Character/MovementComponent referansları doğru oyuncuya ait olarak okundu. Animasyon state machine'leri ve 22/40 saniyelik süre ayarları değiştirilmedi.
+- Yalnızca animasyon Blueprint'i ve takip belgeleri bu parçada kaydedildi. P02'nin fullscreen/Options, ilk grab ve L_Trailer etkileşim kontrolleri hâlâ bekliyor.
+
+## 17 Kasım — BUG-0007 ön doğrulaması
+
+Boşta beyaz HUD açık / yeşil HUD kapalı doğrulandı. İkinci pawn'ın bu iki HUD'u oluşturmadığı okundu. Gerçek ilk grab/bırakma, fare otomasyon ortamı başlatılamadığı için bekliyor; BUG-0007 açık kalır. Oyun asseti değiştirilmedi.
+
+Ek yerleşim doğrulaması: Stand_Arena içindeki TargetPoint_7, BP_CutsceneDirector.handoffPoint olarak atanmış. Spawner'a bağlı olmayan sekizinci nokta eksik spawn bağlantısı değildir; sinematik sonrası oyuncu konumlandırması içindir. P03'ün diğer kabul koşulları henüz tamamlanmadı.
+
+## 17 Kasım — Interface tabanlı hedef göstergesi ve cast envanteri
+
+Kullanıcı kararı: etkileşilebilir hedef yeşile dönmeli; bunu class cast yerine interface/yetenek sorgusu yönetmeli. Bütün cast'ler belirlenecek, özellikle BP_Telekinezi bağımlılıkları küçük parçalarla dönüştürülecek.
+
+WBP_Hud:EventGraph ve WBP_Scope:UpdateCrosshair içindeki Cast To BPI_Interactable düğümleri Does Object Implement Interface(BPI_Interactable) + Branch ile değiştirildi. İki graph'ta dynamic cast sayısı 0; green/white dalları korundu. Her iki widget warnings_as_errors=true ile derlendi ve kaydedildi.
+
+84 Blueprint asset'i ve üç Level Blueprint üzerinden 629 graph tarandı. Kalan 51 cast'in 11'i BP_Telekinezi hedefli. Tam düğüm yolları, işlem amaçları ve dönüşüm sırası Docs/CAST_ENVANTERI.md ve Docs/CAST_ENVANTERI.json dosyalarında. Level Blueprint'lerde cast bulunmadı. Oba_L, ObjectRedirector olarak doğrulandı.
+
+Canlı renk testi, Play öncesi genel derlemede ABP_Unarmed hatasına takıldı. Aynı şablonda envantere alınan Badcastnode var; önce bu referansın kullanımını doğrulamak gerekiyor. Widget derlemeleri temiz olmasına rağmen gerçek yeşile geçiş/ilk grab testi tamamlanmış sayılmıyor. Diğer 51 cast bu parçada değiştirilmedi.
+
+## Güncel öncelik kararı — 17 Kasım 2026
+
+Kullanıcı kararı: kalan cast dönüşümleri not olarak saklanacak ve bug düzeltmelerinden sonra ele alınacak. Öncelik açık bug'ların giderilmesi ve ilgili testlerin tamamlanmasıdır. CAST_ENVANTERI.md / CAST_ENVANTERI.json dosyalarındaki 51 cast (11 BP_Telekinezi hedefli) ertelenmiş mimari işlerdir; normal bug çalışması sırasında toplu cast refactor başlatılmayacak. Bir cast doğrudan doğrulanmış bir bug'ın nedeni ise yalnızca o bug için gerekli dar düzeltme yapılabilir. Hedef göstergesinde tamamlanmış interface değişikliği korunur.

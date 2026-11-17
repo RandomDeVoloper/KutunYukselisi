@@ -1,0 +1,1323 @@
+{
+  "description": "Showier hand/grab FX; input values before and after. CoreGlow bLocalSpace changed false -> true on both systems separately.",
+  "changes": [
+    {
+      "stackInputRef": {
+        "system": {
+          "refPath": "/Game/Kutun/VFX/KutEnergy/NS_KutHand.NS_KutHand"
+        },
+        "emitterName": "CoreGlow",
+        "scriptName": "ParticleSpawnScript",
+        "moduleName": "InitializeParticle",
+        "rendererIndex": 0,
+        "inputNameStack": [
+          "Uniform Sprite Size"
+        ]
+      },
+      "inputData": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 38
+        }
+      },
+      "before": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 26
+        }
+      }
+    },
+    {
+      "stackInputRef": {
+        "system": {
+          "refPath": "/Game/Kutun/VFX/KutEnergy/NS_KutHand.NS_KutHand"
+        },
+        "emitterName": "CoreGlow",
+        "scriptName": "ParticleSpawnScript",
+        "moduleName": "InitializeParticle",
+        "rendererIndex": 0,
+        "inputNameStack": [
+          "Color"
+        ]
+      },
+      "inputData": {
+        "struct": {
+          "refPath": "/Script/CoreUObject.LinearColor"
+        },
+        "value": {
+          "r": 3,
+          "g": 2.1,
+          "b": 0.75,
+          "a": 1
+        }
+      },
+      "before": {
+        "struct": {
+          "refPath": "/Script/CoreUObject.LinearColor"
+        },
+        "value": {
+          "r": 2,
+          "g": 1.4500000476837158,
+          "b": 0.6200000047683716,
+          "a": 1
+        }
+      }
+    },
+    {
+      "stackInputRef": {
+        "system": {
+          "refPath": "/Game/Kutun/VFX/KutEnergy/NS_KutHand.NS_KutHand"
+        },
+        "emitterName": "Embers",
+        "scriptName": "EmitterUpdateScript",
+        "moduleName": "SpawnRate",
+        "rendererIndex": 0,
+        "inputNameStack": [
+          "SpawnRate"
+        ]
+      },
+      "inputData": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 48
+        }
+      },
+      "before": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 18
+        }
+      }
+    },
+    {
+      "stackInputRef": {
+        "system": {
+          "refPath": "/Game/Kutun/VFX/KutEnergy/NS_KutHand.NS_KutHand"
+        },
+        "emitterName": "Embers",
+        "scriptName": "ParticleSpawnScript",
+        "moduleName": "InitializeParticle",
+        "rendererIndex": 0,
+        "inputNameStack": [
+          "Lifetime Min"
+        ]
+      },
+      "inputData": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 0.45
+        }
+      },
+      "before": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 0.5
+        }
+      }
+    },
+    {
+      "stackInputRef": {
+        "system": {
+          "refPath": "/Game/Kutun/VFX/KutEnergy/NS_KutHand.NS_KutHand"
+        },
+        "emitterName": "Embers",
+        "scriptName": "ParticleSpawnScript",
+        "moduleName": "InitializeParticle",
+        "rendererIndex": 0,
+        "inputNameStack": [
+          "Lifetime Max"
+        ]
+      },
+      "inputData": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 0.95
+        }
+      },
+      "before": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 1.2999999523162842
+        }
+      }
+    },
+    {
+      "stackInputRef": {
+        "system": {
+          "refPath": "/Game/Kutun/VFX/KutEnergy/NS_KutHand.NS_KutHand"
+        },
+        "emitterName": "Embers",
+        "scriptName": "ParticleSpawnScript",
+        "moduleName": "InitializeParticle",
+        "rendererIndex": 0,
+        "inputNameStack": [
+          "Uniform Sprite Size Min"
+        ]
+      },
+      "inputData": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 1.1
+        }
+      },
+      "before": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 0.800000011920929
+        }
+      }
+    },
+    {
+      "stackInputRef": {
+        "system": {
+          "refPath": "/Game/Kutun/VFX/KutEnergy/NS_KutHand.NS_KutHand"
+        },
+        "emitterName": "Embers",
+        "scriptName": "ParticleSpawnScript",
+        "moduleName": "InitializeParticle",
+        "rendererIndex": 0,
+        "inputNameStack": [
+          "Uniform Sprite Size Max"
+        ]
+      },
+      "inputData": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 3
+        }
+      },
+      "before": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 2.200000047683716
+        }
+      }
+    },
+    {
+      "stackInputRef": {
+        "system": {
+          "refPath": "/Game/Kutun/VFX/KutEnergy/NS_KutHand.NS_KutHand"
+        },
+        "emitterName": "Embers",
+        "scriptName": "ParticleSpawnScript",
+        "moduleName": "ShapeLocation",
+        "rendererIndex": 0,
+        "inputNameStack": [
+          "Sphere Radius"
+        ]
+      },
+      "inputData": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 18
+        }
+      },
+      "before": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 14
+        }
+      }
+    },
+    {
+      "stackInputRef": {
+        "system": {
+          "refPath": "/Game/Kutun/VFX/KutEnergy/NS_KutHand.NS_KutHand"
+        },
+        "emitterName": "Tendrils",
+        "scriptName": "EmitterUpdateScript",
+        "moduleName": "SpawnRate",
+        "rendererIndex": 0,
+        "inputNameStack": [
+          "SpawnRate"
+        ]
+      },
+      "inputData": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 65
+        }
+      },
+      "before": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 35
+        }
+      }
+    },
+    {
+      "stackInputRef": {
+        "system": {
+          "refPath": "/Game/Kutun/VFX/KutEnergy/NS_KutHand.NS_KutHand"
+        },
+        "emitterName": "Tendrils",
+        "scriptName": "ParticleSpawnScript",
+        "moduleName": "InitializeParticle",
+        "rendererIndex": 0,
+        "inputNameStack": [
+          "Lifetime Min"
+        ]
+      },
+      "inputData": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 0.45
+        }
+      },
+      "before": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 0.6000000238418579
+        }
+      }
+    },
+    {
+      "stackInputRef": {
+        "system": {
+          "refPath": "/Game/Kutun/VFX/KutEnergy/NS_KutHand.NS_KutHand"
+        },
+        "emitterName": "Tendrils",
+        "scriptName": "ParticleSpawnScript",
+        "moduleName": "InitializeParticle",
+        "rendererIndex": 0,
+        "inputNameStack": [
+          "Lifetime Max"
+        ]
+      },
+      "inputData": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 0.85
+        }
+      },
+      "before": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 1.2000000476837158
+        }
+      }
+    },
+    {
+      "stackInputRef": {
+        "system": {
+          "refPath": "/Game/Kutun/VFX/KutEnergy/NS_KutHand.NS_KutHand"
+        },
+        "emitterName": "Tendrils",
+        "scriptName": "ParticleSpawnScript",
+        "moduleName": "InitializeParticle",
+        "rendererIndex": 0,
+        "inputNameStack": [
+          "Ribbon Width"
+        ]
+      },
+      "inputData": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 3.4
+        }
+      },
+      "before": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 2.200000047683716
+        }
+      }
+    },
+    {
+      "stackInputRef": {
+        "system": {
+          "refPath": "/Game/Kutun/VFX/KutEnergy/NS_KutHand.NS_KutHand"
+        },
+        "emitterName": "Tendrils",
+        "scriptName": "ParticleSpawnScript",
+        "moduleName": "ShapeLocation",
+        "rendererIndex": 0,
+        "inputNameStack": [
+          "Sphere Radius"
+        ]
+      },
+      "inputData": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 16
+        }
+      },
+      "before": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 12
+        }
+      }
+    },
+    {
+      "stackInputRef": {
+        "system": {
+          "refPath": "/Game/Kutun/VFX/KutEnergy/NS_KutHand.NS_KutHand"
+        },
+        "emitterName": "Tendrils",
+        "scriptName": "ParticleUpdateScript",
+        "moduleName": "VortexForce",
+        "rendererIndex": 0,
+        "inputNameStack": [
+          "Vortex Force Amount"
+        ]
+      },
+      "inputData": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 340
+        }
+      },
+      "before": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 260
+        }
+      }
+    },
+    {
+      "stackInputRef": {
+        "system": {
+          "refPath": "/Game/Kutun/VFX/KutEnergy/NS_KutHand.NS_KutHand"
+        },
+        "emitterName": "Tendrils",
+        "scriptName": "ParticleUpdateScript",
+        "moduleName": "VortexForce",
+        "rendererIndex": 0,
+        "inputNameStack": [
+          "Origin Pull Amount"
+        ]
+      },
+      "inputData": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 70
+        }
+      },
+      "before": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 55
+        }
+      }
+    },
+    {
+      "stackInputRef": {
+        "system": {
+          "refPath": "/Game/Kutun/VFX/KutEnergy/NS_KutHand.NS_KutHand"
+        },
+        "emitterName": "Tendrils",
+        "scriptName": "ParticleUpdateScript",
+        "moduleName": "CurlNoiseForce",
+        "rendererIndex": 0,
+        "inputNameStack": [
+          "Noise Strength"
+        ]
+      },
+      "inputData": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 175
+        }
+      },
+      "before": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 150
+        }
+      }
+    },
+    {
+      "stackInputRef": {
+        "system": {
+          "refPath": "/Game/Kutun/VFX/KutEnergy/NS_KutGrab.NS_KutGrab"
+        },
+        "emitterName": "CoreGlow",
+        "scriptName": "ParticleSpawnScript",
+        "moduleName": "InitializeParticle",
+        "rendererIndex": 0,
+        "inputNameStack": [
+          "Uniform Sprite Size"
+        ]
+      },
+      "inputData": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 135
+        }
+      },
+      "before": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 115
+        }
+      }
+    },
+    {
+      "stackInputRef": {
+        "system": {
+          "refPath": "/Game/Kutun/VFX/KutEnergy/NS_KutGrab.NS_KutGrab"
+        },
+        "emitterName": "CoreGlow",
+        "scriptName": "ParticleSpawnScript",
+        "moduleName": "InitializeParticle",
+        "rendererIndex": 0,
+        "inputNameStack": [
+          "Color"
+        ]
+      },
+      "inputData": {
+        "struct": {
+          "refPath": "/Script/CoreUObject.LinearColor"
+        },
+        "value": {
+          "r": 2.6,
+          "g": 1.85,
+          "b": 0.7,
+          "a": 1
+        }
+      },
+      "before": {
+        "struct": {
+          "refPath": "/Script/CoreUObject.LinearColor"
+        },
+        "value": {
+          "r": 2,
+          "g": 1.4500000476837158,
+          "b": 0.6200000047683716,
+          "a": 1
+        }
+      }
+    },
+    {
+      "stackInputRef": {
+        "system": {
+          "refPath": "/Game/Kutun/VFX/KutEnergy/NS_KutGrab.NS_KutGrab"
+        },
+        "emitterName": "Swirl",
+        "scriptName": "EmitterUpdateScript",
+        "moduleName": "SpawnRate",
+        "rendererIndex": 0,
+        "inputNameStack": [
+          "SpawnRate"
+        ]
+      },
+      "inputData": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 110
+        }
+      },
+      "before": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 60
+        }
+      }
+    },
+    {
+      "stackInputRef": {
+        "system": {
+          "refPath": "/Game/Kutun/VFX/KutEnergy/NS_KutGrab.NS_KutGrab"
+        },
+        "emitterName": "Swirl",
+        "scriptName": "ParticleSpawnScript",
+        "moduleName": "InitializeParticle",
+        "rendererIndex": 0,
+        "inputNameStack": [
+          "Lifetime Min"
+        ]
+      },
+      "inputData": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 0.6
+        }
+      },
+      "before": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 0.699999988079071
+        }
+      }
+    },
+    {
+      "stackInputRef": {
+        "system": {
+          "refPath": "/Game/Kutun/VFX/KutEnergy/NS_KutGrab.NS_KutGrab"
+        },
+        "emitterName": "Swirl",
+        "scriptName": "ParticleSpawnScript",
+        "moduleName": "InitializeParticle",
+        "rendererIndex": 0,
+        "inputNameStack": [
+          "Lifetime Max"
+        ]
+      },
+      "inputData": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 1.2
+        }
+      },
+      "before": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 1.5
+        }
+      }
+    },
+    {
+      "stackInputRef": {
+        "system": {
+          "refPath": "/Game/Kutun/VFX/KutEnergy/NS_KutGrab.NS_KutGrab"
+        },
+        "emitterName": "Swirl",
+        "scriptName": "ParticleSpawnScript",
+        "moduleName": "InitializeParticle",
+        "rendererIndex": 0,
+        "inputNameStack": [
+          "Uniform Sprite Size Min"
+        ]
+      },
+      "inputData": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 5
+        }
+      },
+      "before": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 4
+        }
+      }
+    },
+    {
+      "stackInputRef": {
+        "system": {
+          "refPath": "/Game/Kutun/VFX/KutEnergy/NS_KutGrab.NS_KutGrab"
+        },
+        "emitterName": "Swirl",
+        "scriptName": "ParticleSpawnScript",
+        "moduleName": "InitializeParticle",
+        "rendererIndex": 0,
+        "inputNameStack": [
+          "Uniform Sprite Size Max"
+        ]
+      },
+      "inputData": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 15
+        }
+      },
+      "before": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 12
+        }
+      }
+    },
+    {
+      "stackInputRef": {
+        "system": {
+          "refPath": "/Game/Kutun/VFX/KutEnergy/NS_KutGrab.NS_KutGrab"
+        },
+        "emitterName": "Swirl",
+        "scriptName": "ParticleSpawnScript",
+        "moduleName": "ShapeLocation",
+        "rendererIndex": 0,
+        "inputNameStack": [
+          "Sphere Radius"
+        ]
+      },
+      "inputData": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 60
+        }
+      },
+      "before": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 48
+        }
+      }
+    },
+    {
+      "stackInputRef": {
+        "system": {
+          "refPath": "/Game/Kutun/VFX/KutEnergy/NS_KutGrab.NS_KutGrab"
+        },
+        "emitterName": "Swirl",
+        "scriptName": "ParticleUpdateScript",
+        "moduleName": "VortexForce",
+        "rendererIndex": 0,
+        "inputNameStack": [
+          "Vortex Force Amount"
+        ]
+      },
+      "inputData": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 460
+        }
+      },
+      "before": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 320
+        }
+      }
+    },
+    {
+      "stackInputRef": {
+        "system": {
+          "refPath": "/Game/Kutun/VFX/KutEnergy/NS_KutGrab.NS_KutGrab"
+        },
+        "emitterName": "Swirl",
+        "scriptName": "ParticleUpdateScript",
+        "moduleName": "VortexForce",
+        "rendererIndex": 0,
+        "inputNameStack": [
+          "Origin Pull Amount"
+        ]
+      },
+      "inputData": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 70
+        }
+      },
+      "before": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 45
+        }
+      }
+    },
+    {
+      "stackInputRef": {
+        "system": {
+          "refPath": "/Game/Kutun/VFX/KutEnergy/NS_KutGrab.NS_KutGrab"
+        },
+        "emitterName": "Swirl",
+        "scriptName": "ParticleUpdateScript",
+        "moduleName": "CurlNoiseForce",
+        "rendererIndex": 0,
+        "inputNameStack": [
+          "Noise Strength"
+        ]
+      },
+      "inputData": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 155
+        }
+      },
+      "before": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 130
+        }
+      }
+    },
+    {
+      "stackInputRef": {
+        "system": {
+          "refPath": "/Game/Kutun/VFX/KutEnergy/NS_KutGrab.NS_KutGrab"
+        },
+        "emitterName": "Embers",
+        "scriptName": "EmitterUpdateScript",
+        "moduleName": "SpawnRate",
+        "rendererIndex": 0,
+        "inputNameStack": [
+          "SpawnRate"
+        ]
+      },
+      "inputData": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 70
+        }
+      },
+      "before": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 35
+        }
+      }
+    },
+    {
+      "stackInputRef": {
+        "system": {
+          "refPath": "/Game/Kutun/VFX/KutEnergy/NS_KutGrab.NS_KutGrab"
+        },
+        "emitterName": "Embers",
+        "scriptName": "ParticleSpawnScript",
+        "moduleName": "InitializeParticle",
+        "rendererIndex": 0,
+        "inputNameStack": [
+          "Lifetime Min"
+        ]
+      },
+      "inputData": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 0.45
+        }
+      },
+      "before": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 0.5
+        }
+      }
+    },
+    {
+      "stackInputRef": {
+        "system": {
+          "refPath": "/Game/Kutun/VFX/KutEnergy/NS_KutGrab.NS_KutGrab"
+        },
+        "emitterName": "Embers",
+        "scriptName": "ParticleSpawnScript",
+        "moduleName": "InitializeParticle",
+        "rendererIndex": 0,
+        "inputNameStack": [
+          "Lifetime Max"
+        ]
+      },
+      "inputData": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 1.1
+        }
+      },
+      "before": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 1.2999999523162842
+        }
+      }
+    },
+    {
+      "stackInputRef": {
+        "system": {
+          "refPath": "/Game/Kutun/VFX/KutEnergy/NS_KutGrab.NS_KutGrab"
+        },
+        "emitterName": "Embers",
+        "scriptName": "ParticleSpawnScript",
+        "moduleName": "InitializeParticle",
+        "rendererIndex": 0,
+        "inputNameStack": [
+          "Uniform Sprite Size Min"
+        ]
+      },
+      "inputData": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 1.8
+        }
+      },
+      "before": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 1.5
+        }
+      }
+    },
+    {
+      "stackInputRef": {
+        "system": {
+          "refPath": "/Game/Kutun/VFX/KutEnergy/NS_KutGrab.NS_KutGrab"
+        },
+        "emitterName": "Embers",
+        "scriptName": "ParticleSpawnScript",
+        "moduleName": "InitializeParticle",
+        "rendererIndex": 0,
+        "inputNameStack": [
+          "Uniform Sprite Size Max"
+        ]
+      },
+      "inputData": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 5.5
+        }
+      },
+      "before": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 4.5
+        }
+      }
+    },
+    {
+      "stackInputRef": {
+        "system": {
+          "refPath": "/Game/Kutun/VFX/KutEnergy/NS_KutGrab.NS_KutGrab"
+        },
+        "emitterName": "Embers",
+        "scriptName": "ParticleSpawnScript",
+        "moduleName": "ShapeLocation",
+        "rendererIndex": 0,
+        "inputNameStack": [
+          "Sphere Radius"
+        ]
+      },
+      "inputData": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 55
+        }
+      },
+      "before": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 42
+        }
+      }
+    },
+    {
+      "stackInputRef": {
+        "system": {
+          "refPath": "/Game/Kutun/VFX/KutEnergy/NS_KutGrab.NS_KutGrab"
+        },
+        "emitterName": "Tendrils",
+        "scriptName": "EmitterUpdateScript",
+        "moduleName": "SpawnRate",
+        "rendererIndex": 0,
+        "inputNameStack": [
+          "SpawnRate"
+        ]
+      },
+      "inputData": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 80
+        }
+      },
+      "before": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 45
+        }
+      }
+    },
+    {
+      "stackInputRef": {
+        "system": {
+          "refPath": "/Game/Kutun/VFX/KutEnergy/NS_KutGrab.NS_KutGrab"
+        },
+        "emitterName": "Tendrils",
+        "scriptName": "ParticleSpawnScript",
+        "moduleName": "InitializeParticle",
+        "rendererIndex": 0,
+        "inputNameStack": [
+          "Lifetime Min"
+        ]
+      },
+      "inputData": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 0.5
+        }
+      },
+      "before": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 0.6000000238418579
+        }
+      }
+    },
+    {
+      "stackInputRef": {
+        "system": {
+          "refPath": "/Game/Kutun/VFX/KutEnergy/NS_KutGrab.NS_KutGrab"
+        },
+        "emitterName": "Tendrils",
+        "scriptName": "ParticleSpawnScript",
+        "moduleName": "InitializeParticle",
+        "rendererIndex": 0,
+        "inputNameStack": [
+          "Lifetime Max"
+        ]
+      },
+      "inputData": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 0.95
+        }
+      },
+      "before": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 1.2000000476837158
+        }
+      }
+    },
+    {
+      "stackInputRef": {
+        "system": {
+          "refPath": "/Game/Kutun/VFX/KutEnergy/NS_KutGrab.NS_KutGrab"
+        },
+        "emitterName": "Tendrils",
+        "scriptName": "ParticleSpawnScript",
+        "moduleName": "InitializeParticle",
+        "rendererIndex": 0,
+        "inputNameStack": [
+          "Ribbon Width"
+        ]
+      },
+      "inputData": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 6
+        }
+      },
+      "before": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 4.5
+        }
+      }
+    },
+    {
+      "stackInputRef": {
+        "system": {
+          "refPath": "/Game/Kutun/VFX/KutEnergy/NS_KutGrab.NS_KutGrab"
+        },
+        "emitterName": "Tendrils",
+        "scriptName": "ParticleSpawnScript",
+        "moduleName": "ShapeLocation",
+        "rendererIndex": 0,
+        "inputNameStack": [
+          "Sphere Radius"
+        ]
+      },
+      "inputData": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 44
+        }
+      },
+      "before": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 34
+        }
+      }
+    },
+    {
+      "stackInputRef": {
+        "system": {
+          "refPath": "/Game/Kutun/VFX/KutEnergy/NS_KutGrab.NS_KutGrab"
+        },
+        "emitterName": "Tendrils",
+        "scriptName": "ParticleUpdateScript",
+        "moduleName": "VortexForce",
+        "rendererIndex": 0,
+        "inputNameStack": [
+          "Vortex Force Amount"
+        ]
+      },
+      "inputData": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 560
+        }
+      },
+      "before": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 430
+        }
+      }
+    },
+    {
+      "stackInputRef": {
+        "system": {
+          "refPath": "/Game/Kutun/VFX/KutEnergy/NS_KutGrab.NS_KutGrab"
+        },
+        "emitterName": "Tendrils",
+        "scriptName": "ParticleUpdateScript",
+        "moduleName": "VortexForce",
+        "rendererIndex": 0,
+        "inputNameStack": [
+          "Origin Pull Amount"
+        ]
+      },
+      "inputData": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 90
+        }
+      },
+      "before": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 70
+        }
+      }
+    },
+    {
+      "stackInputRef": {
+        "system": {
+          "refPath": "/Game/Kutun/VFX/KutEnergy/NS_KutGrab.NS_KutGrab"
+        },
+        "emitterName": "Tendrils",
+        "scriptName": "ParticleUpdateScript",
+        "moduleName": "CurlNoiseForce",
+        "rendererIndex": 0,
+        "inputNameStack": [
+          "Noise Strength"
+        ]
+      },
+      "inputData": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 175
+        }
+      },
+      "before": {
+        "struct": {
+          "refPath": "/Script/Niagara.NiagaraFloat"
+        },
+        "value": {
+          "value": 210
+        }
+      }
+    },
+    {
+      "stackInputRef": {
+        "system": {
+          "refPath": "/Game/Kutun/VFX/KutEnergy/NS_KutHand.NS_KutHand"
+        },
+        "emitterName": "Tendrils",
+        "scriptName": "EmitterUpdateScript",
+        "moduleName": "EmitterState",
+        "rendererIndex": 0,
+        "inputNameStack": [
+          "Loop Behavior"
+        ]
+      },
+      "inputData": {
+        "struct": {
+          "refPath": "/Script/NiagaraEditor.NiagaraExt_StackInputData_Enum"
+        },
+        "value": {
+          "enum": {
+            "refPath": "/Niagara/Enums/ENiagara_EmitterStateOptions.ENiagara_EmitterStateOptions"
+          },
+          "enumName": "ENiagara_EmitterStateOptions::NewEnumerator0",
+          "displayName": "Infinite"
+        }
+      },
+      "before": {
+        "struct": {
+          "refPath": "/Script/NiagaraEditor.NiagaraExt_StackInputData_Enum"
+        },
+        "value": {
+          "enum": {
+            "refPath": "/Niagara/Enums/ENiagara_EmitterStateOptions.ENiagara_EmitterStateOptions"
+          },
+          "enumName": "ENiagara_EmitterStateOptions::NewEnumerator1",
+          "displayName": "Once"
+        }
+      }
+    },
+    {
+      "stackInputRef": {
+        "system": {
+          "refPath": "/Game/Kutun/VFX/KutEnergy/NS_KutGrab.NS_KutGrab"
+        },
+        "emitterName": "Tendrils",
+        "scriptName": "EmitterUpdateScript",
+        "moduleName": "EmitterState",
+        "rendererIndex": 0,
+        "inputNameStack": [
+          "Loop Behavior"
+        ]
+      },
+      "inputData": {
+        "struct": {
+          "refPath": "/Script/NiagaraEditor.NiagaraExt_StackInputData_Enum"
+        },
+        "value": {
+          "enum": {
+            "refPath": "/Niagara/Enums/ENiagara_EmitterStateOptions.ENiagara_EmitterStateOptions"
+          },
+          "enumName": "ENiagara_EmitterStateOptions::NewEnumerator0",
+          "displayName": "Infinite"
+        }
+      },
+      "before": {
+        "struct": {
+          "refPath": "/Script/NiagaraEditor.NiagaraExt_StackInputData_Enum"
+        },
+        "value": {
+          "enum": {
+            "refPath": "/Niagara/Enums/ENiagara_EmitterStateOptions.ENiagara_EmitterStateOptions"
+          },
+          "enumName": "ENiagara_EmitterStateOptions::NewEnumerator1",
+          "displayName": "Once"
+        }
+      }
+    }
+  ]
+}
