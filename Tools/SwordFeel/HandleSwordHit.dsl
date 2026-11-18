@@ -1,0 +1,13 @@
+(fn HandleSwordHit (HitBone ImpactLocation Damage DamageCauser)
+  (bind _returnvalue (Utilities|Time|GetGameTimeInSeconds))
+  (if (and (not (Variables|Default|GetIsDead)) (not (Variables|Default|GetLegSevered)))
+    (if (or (== (Variables|Default|GetLastHitBone) (Utilities|Name|MakeLiteralName "None")) (>= (- _returnvalue (Variables|Default|GetLastSwordHitTime)) 0.15))
+      (Variables|Default|SetLastSwordHitTime _returnvalue)
+      (Variables|Default|SetLastHitBone HitBone)
+      (Variables|Default|SetLastSwordImpact ImpactLocation)
+      (Variables|Default|SetLastSwordCauser DamageCauser)
+      (Variables|Default|SetLastSwordDamage Damage)
+      (Variables|Default|SetProcessingSwordContact true)
+      (CallFunction|OnLimbSevered)
+      (Variables|Default|SetProcessingSwordContact false))))
+
