@@ -180,18 +180,10 @@ testi ekleniyor. Toplam 13-16 ölüm — rapor edilen "15" tam oraya düşüyor.
 
 Yani bölüm 1'deki test aktörünün kaldırılması bu belirtiyi de çözdü.
 
-**Geriye kalan küçük soru:** `get_referencers` L_Trailer'ın test aktörüne referans
-vermediğini gösterdi. Sayaç L_Trailer'da görüldüyse ya ölçüm Stand_Arena'da
-yapılmıştır ya da **öldürme sayacı seviyeler arasında sıfırlanmıyordur**. İkincisi
-ayrı ve küçük bir hata olur; L_Trailer açılıp sayacın 0'dan başladığı teyit
-edilmeli. Doğrulanmadı.
+**Doğrulandı (2026-11-19):** L_Trailer'da sayaç 0'dan başlıyor. Sorun yok.
 
-### 6.2 `SK_Bizans` riglenmemiş
-```
-SK_Bizans kemikleri: RootNode, Mesh_0    <- gercek iskelet yok
-```
-Bizans'ta uzuv kesme de ragdoll da çalışamaz. `BP_EnemySpawner`'ın
-`enemyClasses` dizisinde **hâlâ var** — spawn ediliyor.
+### 6.2 `SK_Bizans` riglenmemiş — ÇÖZÜLDÜ (2026-11-19)
+Bizans `BP_EnemySpawner.enemyClasses` listesinden çıkarıldı. Uzuv kesme/ragdoll çalışana kadar spawn edilmiyor.
 
 ### 6.3 Fizik varlıklarında eksik gövdeler
 ```
@@ -202,18 +194,23 @@ Her ikisi     : LeftToeBase, RightToeBase, head_end, headfront YOK
 Şu anki eşleme bunlardan kaçınıyor, ama kiti `LeftArm`'dan kesmeye yönlendirirsen
 "Invalid Bodies" hatası alırsın.
 
-### 6.4 Kit `boneHealth` ile gameplay senkron değil
-Kit uzvu kopartmak için kemik başına **6–12 birikmiş hasar** istiyor; `OnLimbSevered`
-ise **ilk isabette** tepki veriyor. Yani bacak hemen ragdoll olurken görsel kopma
-daha sonra gelir. **Hizalanması gerekiyor.**
+### 6.4 Kit `boneHealth` ile gameplay senkron değil — KABLOLANMASI ÇÖZÜLDÜ (2026-11-19)
+`SeverWithSword` artık `OnLimbSevered`'ı direkt çağırmak yerine kit'in
+`ApplyDamageToBone()` fonksiyonunu geçit olarak kullanıyor:
+1. `FindClosestBone` → `C_Dismemberment.hitBoneName` ve `appliedDamage = 25` set edilir
+2. `ApplyDamageToBone()` çağrılır — dönüş `true` (kemik sağlığı ≤ 0) ise `OnLimbSevered`
+3. `breakableBones` dizisinde `"RightArm"/"LeftArm"` → `"RightShoulder"/"LeftShoulder"`
+   düzeltildi (Mixamo iskelet adları ile eşleme).
 
-### 6.5 Debug çıktısı hâlâ açık
-`BP_Enemy:SeverWithSword` içinde kemik adını 4 saniye ekrana basan bir
-`PrintString` var. Kaldırılmalı.
+**Hâlâ açık:** `boneHealth` değerleri [10,10,6,6,11,11,12,12,6] ve kılıç hasarı 25 —
+tüm değerler < 25 olduğundan davranış yine ilk vuruşta sevilir. Çoklu vuruş gerektirmek
+için `boneHealth` değerlerini büyütmek **6.7 kapsamında** tartışılacak.
 
-### 6.6 BP_Sword'de gereksiz interface
-`BP_Sword`'e `BPI_Dismemberable` eklenmiş. Gönderenin interface'i implement
-etmesine gerek yok — Class Settings'ten çıkarılabilir.
+### 6.5 Debug çıktısı — ÇÖZÜLDÜ (2026-11-19)
+`BP_Enemy:SeverWithSword` içindeki `PrintString` kaldırıldı.
+
+### 6.6 BP_Sword'de gereksiz interface — ÇÖZÜLDÜ (2026-11-19)
+`BP_Sword` Class Settings'ten `BPI_Dismemberable` çıkarıldı.
 
 ### 6.7 Kılıç hasarı / can dengesi
 Kılıç 25 hasar, `UC_HealthComponent` varsayılanı 100 can = 4 vuruş. Kullanıcı
@@ -238,12 +235,11 @@ Bu oturumda acı çekilerek öğrenildi:
 
 ## 8. Sıradaki iş
 
-1. **Kit `boneHealth` ile gameplay'i hizala** (6.4) — en büyük tasarım açığı
-2. `PrintString`'i kaldır (6.5)
-3. Kılıç hasarı / can dengesini doğrula (6.7)
-4. `BP_Sword`'den gereksiz interface'i çıkar (6.6)
-5. Bizans'ı ya rigle ya spawner listesinden çıkar (6.2)
-6. L_Trailer'da öldürme sayacının 0'dan başladığını teyit et (6.1)
+**Çözülenler (2026-11-19):** 6.1, 6.2, 6.5, 6.6
+**Kablolama çözüldü (2026-11-19):** 6.4 — `ApplyDamageToBone` geçidi + `breakableBones` kemik adları düzeltildi
+
+**Kalan açık işler:**
+1. **boneHealth değer ayarı** (6.4 + 6.7) — kılıç hasarı ve boneHealth değerlerini tartışarak dengele
 
 Oyun içi tam test (kılıcı fırlatıp bacağa/kola/kafaya isabet) **hiç yapılmadı**;
 elimizdeki tek runtime kanıtı silinen regresyon testinin logları.
