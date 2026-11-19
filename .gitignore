@@ -100,3 +100,7 @@ production/session-logs/
 production/session-state/
 .scratch/
 Docs/consistency-failures.md
+
+# Local backups and session handoff docs
+Backups/
+Docs/TELEKINEZI_CLAUDE_DEVIR_*.md
